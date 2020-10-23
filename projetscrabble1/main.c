@@ -30,6 +30,10 @@ int main()
         return 0;
         break;
 
+    case 6:
+        //test affichage
+        ecriremot();
+        break;
 
         return 0;
     }
