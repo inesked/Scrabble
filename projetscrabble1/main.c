@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "header.h"
 
 int main()
 {
@@ -13,13 +14,15 @@ int main()
     switch (choix)
     {
     case 1:
-
+        //nouvelle partie
         break;
 
     case 2:
+        //reprendre partie
         break;
 
     case 3:
+        //aide
         break;
 
     case 4:
