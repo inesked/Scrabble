@@ -22,7 +22,8 @@ int main()
         break;
 
     case 3:
-        //aide
+
+        aide();
         break;
 
     case 4:

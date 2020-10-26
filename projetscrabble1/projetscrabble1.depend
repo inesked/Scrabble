@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1603703384 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\main.c
+1603720836 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\main.c
 	<stdio.h>
 	<stdlib.h>
 	"header.h"
 
-1603448653 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\ecriremot.c
+1603703444 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\ecriremot.c
 	<stdio.h>
 	<stdlib.h>
 
-1603703363 c:\users\inès\documents\github\projetscrabble\projetscrabble1\header.h
+1603720837 c:\users\inès\documents\github\projetscrabble\projetscrabble1\header.h
 
