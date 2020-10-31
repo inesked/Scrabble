@@ -10,3 +10,19 @@
 
 1603720837 c:\users\inès\documents\github\projetscrabble\projetscrabble1\header.h
 
+1604157905 source:c:\users\sana idali\documents\github\projetscrabble\projetscrabble1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"header.h"
+
+1604157922 c:\users\sana idali\documents\github\projetscrabble\projetscrabble1\header.h
+
+1604155686 source:c:\users\sana idali\documents\github\projetscrabble\projetscrabble1\ecriremot.c
+	<stdio.h>
+	<stdlib.h>
+
+1604157948 source:c:\users\sana idali\documents\github\projetscrabble\projetscrabble1\plateau.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+

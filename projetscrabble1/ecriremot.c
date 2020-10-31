@@ -25,7 +25,7 @@ int ecriremot()
 
     //pioche
     printf("\n verification de l'accès à la pioche : \n");
-//    FILE * fp;
+    //FILE * fp;
     //lire un txt avec lettre, occurence et valeure
     int j=0;
     char lettrepiochee;
