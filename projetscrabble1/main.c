@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "header.h"
 
+//wsh la street
 int main()
 {
     int choix;
