@@ -14,9 +14,8 @@ int main()
     switch (choix)
     {
     case 1:
-        initTableau(tab);
-        dessinerGrille(TAILLE_GRILLE, TAILLE_CEL, tab);
         //nouvelle partie
+        nvllePartie();
         break;
 
     case 2:
@@ -25,7 +24,7 @@ int main()
 
     case 3:
 
-        aide();
+        //aide();
         break;
 
     case 4:
@@ -38,10 +37,9 @@ int main()
 
     case 6:
         //test affichage
-        ecriremot();
+        //ecriremot();
         break;
 
         return 0;
     }
 }
-

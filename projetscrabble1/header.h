@@ -2,8 +2,11 @@
 #include <stdlib.h>
 #include <conio.h>
 
-//#include "plateau.c"
-
+/*
+#include "plateau.c"
+#include "deplacement.c"
+#include "ecriremot.c"
+*/
 #define TAILLE_MAX 1000
 #define TAILLE_GRILLE 15
 #define TAILLE_CEL 2
@@ -23,13 +26,22 @@ typedef struct
 
 
 /** Définition des variables globales et tableaux **/
+
+char sens;  //Prend la valeur V ou H pour désigner le sens du mot sur le plateau
+int ligne; //numéro de ligne entré pour placé le mot
+int colonne; //numéro de colonne entré pour placé le mot
+int i, j, k; //variable de parcours
+char mot[15]; //chaine de caractère qui contient le mot à placer
+
 char grille[TAILLE_TAB][TAILLE_TAB];
 char tab[TAILLE_TAB][TAILLE_TAB];
 
 /** Définition des prototypes des fonctions **/
 void initTableau(char tab[TAILLE_TAB][TAILLE_TAB]);
 void dessinerGrille(int tailleGrille, int tailleCel, char tab[TAILLE_TAB][TAILLE_TAB]);
+void nvllePartie();
 
+/*
 
 int aide()
 {
@@ -49,7 +61,7 @@ int aide()
 
     return 0;
 }
-
+*/
 /*
 int main()
 {

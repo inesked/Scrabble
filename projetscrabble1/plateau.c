@@ -1,9 +1,14 @@
-
+#include "header.h"
 #define TAILLE_GRILLE 15
 #define TAILLE_CEL 2
 #define TAILLE_TAB 15
 
-/** Initialistion du plateau de jeu **/
+
+/**
+    Initialistion du plateau de jeu avec
+    - la grille
+    - le tableau de tableau
+**/
 void dessinerGrille(int tailleTab, int tailleCel, char tab[TAILLE_TAB][TAILLE_TAB])
 {
     int i, j;
@@ -37,6 +42,10 @@ void dessinerGrille(int tailleTab, int tailleCel, char tab[TAILLE_TAB][TAILLE_TA
     }
 }
 
+/**
+    Initialisation du tableau avec les caractères spéciaux
+**/
+
 void initTableau(char tab[TAILLE_TAB][TAILLE_TAB])
 {
     int i, j;
@@ -63,4 +72,3 @@ void initTableau(char tab[TAILLE_TAB][TAILLE_TAB])
     tab[7][14] = '§';                                                               tab[11][14] = '&';                                           tab[14][14] = '§';
 
 }
-
