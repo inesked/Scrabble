@@ -1,10 +1,8 @@
-#ifndef HEADER_H_INCLUDED
-#define HEADER_H_INCLUDED
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
-#include "plateau.c"
+
+//#include "plateau.c"
 
 #define TAILLE_MAX 1000
 #define TAILLE_GRILLE 15
@@ -52,7 +50,6 @@ int aide()
     return 0;
 }
 
-#endif // HEADER_H_INCLUDED
 /*
 int main()
 {
