@@ -33,3 +33,26 @@
 	<stdlib.h>
 	<time.h>
 
+1604224800 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\main.c
+	"header.h"
+
+1604224761 c:\users\admin\documents\github\projetscrabble\projetscrabble1\header.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"plateau.c"
+
+1604165577 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\ecriremot.c
+	<stdio.h>
+	<stdlib.h>
+
+1604224465 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\plateau.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1604224817 c:\users\admin\documents\github\projetscrabble\projetscrabble1\plateau.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+

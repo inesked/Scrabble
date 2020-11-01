@@ -1,8 +1,37 @@
 #ifndef HEADER_H_INCLUDED
 #define HEADER_H_INCLUDED
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include "plateau.c"
+
 #define TAILLE_MAX 1000
+#define TAILLE_GRILLE 15
+#define TAILLE_CEL 2
+#define TAILLE_TAB 15
+
 //faire strucuture Partie avec (joueur, temps, pioche, afficher les points des joueurs)
 //faire structure joueur avec (lettres, points,
+
+/** Définition des structures **/
+
+typedef struct
+{
+    char nom;
+    int nbOcc;
+    int valeur;
+}Lettre;
+
+
+/** Définition des variables globales et tableaux **/
+char grille[TAILLE_TAB][TAILLE_TAB];
+char tab[TAILLE_TAB][TAILLE_TAB];
+
+/** Définition des prototypes des fonctions **/
+void initTableau(char tab[TAILLE_TAB][TAILLE_TAB]);
+void dessinerGrille(int tailleGrille, int tailleCel, char tab[TAILLE_TAB][TAILLE_TAB]);
+
 
 int aide()
 {
