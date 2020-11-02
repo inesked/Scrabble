@@ -33,61 +33,33 @@ char sens;  //Prend la valeur V ou H pour désigner le sens du mot sur le plateau
 int ligne; //numéro de ligne entré pour placé le mot
 int colonne; //numéro de colonne entré pour placé le mot
 int i, j, k; //variable de parcours
+int cpt; //Permet d'indiquer au programme si on est au premier tour pour le placement du premier mot
 char mot[15]; //chaine de caractère qui contient le mot à placer
 
-char grille[TAILLE_TAB][TAILLE_TAB];
-char tab[TAILLE_TAB][TAILLE_TAB];
+char grille[TAILLE_TAB][TAILLE_TAB]; //
+char tab[TAILLE_TAB][TAILLE_TAB]; //tableau qui contient le plateau de jeu
 
 /** Définition des prototypes des fonctions **/
+
+//dessine et affiche le plateau
 void initTableau(char tab[TAILLE_TAB][TAILLE_TAB]);
 void dessinerGrille(int tailleGrille, int tailleCel, char tab[TAILLE_TAB][TAILLE_TAB]);
 
+//Place le mot et l'écrit dans le tableau
 void placeMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], int ligne, int colonne, int taille_tab, char sens);
-int horizontal(char mot[TAILLE_MOT],int ligne, int colonne, int taille_tab);
-int vertical(char mot[TAILLE_MOT] ,int ligne, int colonne, int taille_tab);
 void ecritMot(char mot[TAILLE_MOT] ,char tab[TAILLE_TAB][TAILLE_TAB], char sens);
 
+//vérifie si le mot peut être écrit à l'horizontale ou à la verticale
+int horizontal(char mot[TAILLE_MOT],int ligne, int colonne, int taille_tab);
+int vertical(char mot[TAILLE_MOT] ,int ligne, int colonne, int taille_tab);
 
-void nvllePartie();
+// Définit une nouvelle partie
+void nvllePartie(int cpt);
 
-/*
+//Affiche les règles du jeu
+void aide();
 
-int aide()
-{
-    FILE * fichier;//=NULL;
-    char mot[TAILLE_MAX] = "";
-    int i;
-    fichier = fopen("aide.txt", "r"); // r pour read
-     if (fichier != NULL)
-    {
-        while (fgets(mot, TAILLE_MAX, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
-        {
-            printf("%s", mot); // On affiche la chaîne qu'on vient de lire
-        }
-
-        fclose(fichier);
-    }
-
-    return 0;
-}
-*/
-/*
-int main()
-{
-    FILE* fichier = NULL;
-    char chaine[TAILLE_MAX] = "";
-
-    fichier = fopen("test.txt", "r");
-
-    if (fichier != NULL)
-    {
-        while (fgets(chaine, TAILLE_MAX, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
-        {
-            printf("%s", chaine); // On affiche la chaîne qu'on vient de lire
-        }
-
-        fclose(fichier);
-    }
-
-    return 0;
-}*/
+//Fait une sauvegarde du plateau dans un fichier texte avant de quitter le programme
+void sauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
+void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
+void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB], int cpt);

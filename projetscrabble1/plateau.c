@@ -52,7 +52,7 @@ void initTableau(char tab[TAILLE_TAB][TAILLE_TAB])
     for(i= 0; i< TAILLE_TAB; i++)
     {
         for(j =0; j< TAILLE_TAB; j++){
-            tab[i][j] = ' ';
+            tab[i][j] = '_';
         }
     }
 
