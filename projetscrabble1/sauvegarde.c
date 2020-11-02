@@ -45,15 +45,15 @@ void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB])
 }
 
 
-void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB], int cpt)
+void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB])
 {
-    cpt =1;
+    int cpt =1;
     lireSauvegarde(tab);
     dessinerGrille(TAILLE_TAB, TAILLE_CEL, tab);
 
     while(1)
     {
-
+            printf("%d\n", cpt);
             /** Saisie par l'utilisateur des coordonnées du mot **/
 
             do{

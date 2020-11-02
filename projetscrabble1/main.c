@@ -17,11 +17,11 @@ int main()
         {
         case 1:
             //nouvelle partie
-            nvllePartie(0);
+            nvllePartie();
             break;
 
         case 2:
-            partieSauvegarder(tab, 1);
+            partieSauvegarder(tab);
             //reprendre partie
             break;
 

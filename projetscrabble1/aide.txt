@@ -4,18 +4,18 @@
 
 
 BUT : 
-obtenir le plus de points en créant des mots avec les lettres tirées au hasard dans la pioche. 
+obtenir le plus de points en creant des mots avec les lettres tirees au hasard dans la pioche. 
 
 
 COMPOSITION DU JEU :
-Il faut tre au minimum deux joueurs. 
-Voici de quoi est composŽ le jeu :
+Il faut etre au minimum deux joueurs. 
+Voici de quoi est compose le jeu :
 - Un plateau de jeu 
 - Une pioche qui contient 102 lettres 
 
 
 VALEUR DES CASES ET DES LETTRES :
-Attention ˆ la valeur de chaque case et chaque lettre !
+Attention a la valeur de chaque case et chaque lettre !
 
 Lettres :
 - 0 point = Joker x 2 
@@ -35,21 +35,21 @@ Cases :
 
 COMMENCEMENT D'UNE PARTIE :
 Chaque joueur tire au hasard 7 lettres dans la pioche. A vous d'essayer de faire une ou plusieurs combinaisons de mots. 
-Le premier ˆ jouer doit obligatoirement poser son mot au centre du plateau sur la case #.  
-Le deuxime ˆ jouer doit s'appuyer sur une lettre du mot du premier pour poser le sien. 
+Le premier a jouer doit obligatoirement poser son mot au centre du plateau sur la case #.  
+Le deuxieme a jouer doit s'appuyer sur une lettre du mot du premier pour poser le sien. 
 Ainsi continue le jeu. 
 
 
-RéGLES : 
-- Pour poser son mot, chaque joueur doit s'appuyer sur une lettre d'un mot dŽjˆ posŽ. 
-- Un joueur peut procŽder ˆ l'Žchange d'une ou plusieurs lettres en piochant d'autres lettres au hasard. Cela lui fait passer son tour. 
+REGLES : 
+- Pour poser son mot, chaque joueur doit s'appuyer sur une lettre d'un mot deja pose. 
+- Un joueur peut proceder a l'echange d'une ou plusieurs lettres en piochant d'autres lettres au hasard. Cela lui fait passer son tour. 
 
 
 CALCUL DES POINTS :
-- Pour obtenir le score d'un mot, on additionne la valeur de toutes les lettres des nouveaux mots formŽs ( y compris les lettres dŽjˆ posŽes sur le plateau). Attention il faut prendre en compte les cases spŽciales ( voir " VALEUR DES CASES ET DES LETTRES "). 
-- Si un mot est posŽ sur deux cases " mot compte double " ou " mot compte triple ", la valeur du mot est multipliŽe par 4 ou 9. 
-- Attention chaque case spŽciale ne peut servir qu'une seule et unique fois. 
-- Si un joueur parvient ˆ poser ses 7 lettres d'un seul coup, il rŽalise un " Scrabble "  Cela lui rapporte 50 points supplŽmentaires. 
+- Pour obtenir le score d'un mot, on additionne la valeur de toutes les lettres des nouveaux mots formes ( y compris les lettres dŽjˆ posŽes sur le plateau). Attention il faut prendre en compte les cases spŽciales ( voir " VALEUR DES CASES ET DES LETTRES "). 
+- Si un mot est pose sur deux cases " mot compte double " ou " mot compte triple ", la valeur du mot est multipliee par 4 ou 9. 
+- Attention chaque case speciale ne peut servir qu'une seule et unique fois. 
+- Si un joueur parvient a poser ses 7 lettres d'un seul coup, il realise un " Scrabble "  Cela lui rapporte 50 points supplŽmentaires. 
 
 
 FIN DE PARTIE : 
@@ -58,9 +58,9 @@ Celui qui a obtenu le plus de points gagne la partie.
 
 
 TRUCS ET ASTUCES : 
-- Pensez ˆ vos conjugaisons, elles pourraient s'avŽrer tre trs utiles. 
-- Pensez ˆ des mots qui conviendraient ˆ un " Scrabble " ( voir " CALCUL DES POINTS "
-- En complŽtant un mot dŽjˆ existant ( rajout de terminaisons) vous ajoutez les points de ce mots. 
+- Pensez a vos conjugaisons, elles pourraient s'averer etre tres utiles. 
+- Pensez a des mots qui conviendraient ˆ un " Scrabble " ( voir " CALCUL DES POINTS "
+- En completant un mot deja existant ( rajout de terminaisons) vous ajoutez les points de ce mots. 
 
 
-Vous avez maintenant toutes les clefs en main. Bon jeu ˆ vous et que le meilleur gagne !
+Vous avez maintenant toutes les clefs en main. Bon jeu a vous et que le meilleur gagne !

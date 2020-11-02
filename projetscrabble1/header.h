@@ -54,7 +54,7 @@ int horizontal(char mot[TAILLE_MOT],int ligne, int colonne, int taille_tab);
 int vertical(char mot[TAILLE_MOT] ,int ligne, int colonne, int taille_tab);
 
 // Définit une nouvelle partie
-void nvllePartie(int cpt);
+void nvllePartie();
 
 //Affiche les règles du jeu
 void aide();
@@ -62,4 +62,4 @@ void aide();
 //Fait une sauvegarde du plateau dans un fichier texte avant de quitter le programme
 void sauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
 void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
-void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB], int cpt);
+void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB]);

@@ -4,8 +4,9 @@
 
 /** Création d'une nouvelle partie de jeu **/
 
-void nvllePartie(int cpt)
+void nvllePartie()
 {
+    int cpt = 0;
     /** Initailisation de la grille de départ **/
     initTableau(tab);
     dessinerGrille(TAILLE_GRILLE, TAILLE_CEL, tab);
@@ -70,6 +71,7 @@ void placeMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], int ligne,
 
     h = horizontal(mot, ligne, colonne, TAILLE_TAB );
 
+    //pour le test
     printf("v = %d\n", v);
     printf("h = %d\n", h);
     printf("sens = %c\n", sens);
@@ -93,7 +95,7 @@ void placeMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], int ligne,
             dessinerGrille(TAILLE_TAB, TAILLE_CEL, tab);
         }
         else
-            printf("Le mot ne peut pas etre ecrit horizontalement");
+            printf("Le mot ne peut pas etre ecrit verticalement");
 
     }
 }
