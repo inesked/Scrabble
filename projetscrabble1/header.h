@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <string.h>
 
 /*
 #include "plateau.c"
@@ -11,6 +12,7 @@
 #define TAILLE_GRILLE 15
 #define TAILLE_CEL 2
 #define TAILLE_TAB 15
+#define TAILLE_MOT 15
 
 //faire strucuture Partie avec (joueur, temps, pioche, afficher les points des joueurs)
 //faire structure joueur avec (lettres, points,
@@ -39,6 +41,13 @@ char tab[TAILLE_TAB][TAILLE_TAB];
 /** Définition des prototypes des fonctions **/
 void initTableau(char tab[TAILLE_TAB][TAILLE_TAB]);
 void dessinerGrille(int tailleGrille, int tailleCel, char tab[TAILLE_TAB][TAILLE_TAB]);
+
+void placeMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], int ligne, int colonne, int taille_tab, char sens);
+int horizontal(char mot[TAILLE_MOT],int ligne, int colonne, int taille_tab);
+int vertical(char mot[TAILLE_MOT] ,int ligne, int colonne, int taille_tab);
+void ecritMot(char mot[TAILLE_MOT] ,char tab[TAILLE_TAB][TAILLE_TAB], char sens);
+
+
 void nvllePartie();
 
 /*

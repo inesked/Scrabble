@@ -36,15 +36,16 @@
 1604244356 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\main.c
 	"header.h"
 
-1604244246 c:\users\admin\documents\github\projetscrabble\projetscrabble1\header.h
+1604276794 c:\users\admin\documents\github\projetscrabble\projetscrabble1\header.h
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
+	<string.h>
 	"plateau.c"
 	"deplacement.c"
 	"ecriremot.c"
 
-1604244021 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\ecriremot.c
+1604276431 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\ecriremot.c
 	"header.h"
 
 1604244262 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\plateau.c
@@ -53,9 +54,9 @@
 1604244262 c:\users\admin\documents\github\projetscrabble\projetscrabble1\plateau.c
 	"header.h"
 
-1604249251 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\deroulement.c
+1604278458 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\deroulement.c
 	"header.h"
 
-1604244021 c:\users\admin\documents\github\projetscrabble\projetscrabble1\ecriremot.c
+1604276431 c:\users\admin\documents\github\projetscrabble\projetscrabble1\ecriremot.c
 	"header.h"
 

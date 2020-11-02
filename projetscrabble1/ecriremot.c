@@ -1,6 +1,6 @@
 #include "header.h"
 
-
+/**
 int ecriremot()
 {
     //chevalet
@@ -17,25 +17,26 @@ int ecriremot()
         scanf("%c", &lettrechevalet);
         fprintf(fp, "%c", lettrechevalet);
     }
-   /* fclose(fp);
-    return 0;*/
+    fclose(fp);
+    return 0;
 
 
     //pioche
     printf("\n verification de l'accès à la pioche : \n");
     //FILE * fp;
     //lire un txt avec lettre, occurence et valeure
-    int j=0;
+    //int j=0;
     char lettrepiochee;
 
     fp = fopen("pioche.txt", "w");
 
-    /*for(i=0; i<14; i++)
+    for(i=0; i<14; i++)
     {
         scanf("%c", &lettrepiochee);
         fprintf(fp, "%c", lettrepiochee);
-    }*/
+    }
     fprintf(fp, "%c", lettrepiochee);
     fclose(fp);
     return 0;
 }
+**/
