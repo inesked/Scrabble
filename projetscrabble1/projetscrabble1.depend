@@ -1,14 +1,18 @@
 # depslib dependency file v1.0
-1603720836 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\main.c
-	<stdio.h>
-	<stdlib.h>
+1604317431 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\main.c
 	"header.h"
 
-1603703444 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\ecriremot.c
+1604313569 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\ecriremot.c
+	"header.h"
+
+1604317431 c:\users\inès\documents\github\projetscrabble\projetscrabble1\header.h
 	<stdio.h>
 	<stdlib.h>
-
-1603720837 c:\users\inès\documents\github\projetscrabble\projetscrabble1\header.h
+	<conio.h>
+	<string.h>
+	"plateau.c"
+	"deplacement.c"
+	"ecriremot.c"
 
 1604157905 source:c:\users\sana idali\documents\github\projetscrabble\projetscrabble1\main.c
 	<stdio.h>
@@ -59,4 +63,23 @@
 
 1604276431 c:\users\admin\documents\github\projetscrabble\projetscrabble1\ecriremot.c
 	"header.h"
+
+1604313569 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\deroulement.c
+	"header.h"
+
+1604313569 c:\users\inès\documents\github\projetscrabble\projetscrabble1\plateau.c
+	"header.h"
+
+1604313569 c:\users\inès\documents\github\projetscrabble\projetscrabble1\ecriremot.c
+	"header.h"
+
+1604313569 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\plateau.c
+	"header.h"
+
+1604158116 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\test.c
+	<stdio.h>
+	<string.h>
+	<math.h>
+	<stdlib.h>
+	<time.h>
 
