@@ -1,7 +1,66 @@
-bla
-blo
-bli
 
-3
-A
-******* AIDE ******
+********************* AIDE SCRABBLE ********************
+
+
+
+BUT : 
+obtenir le plus de points en créant des mots avec les lettres tirées au hasard dans la pioche. 
+
+
+COMPOSITION DU JEU :
+Il faut tre au minimum deux joueurs. 
+Voici de quoi est composŽ le jeu :
+- Un plateau de jeu 
+- Une pioche qui contient 102 lettres 
+
+
+VALEUR DES CASES ET DES LETTRES :
+Attention ˆ la valeur de chaque case et chaque lettre !
+
+Lettres :
+- 0 point = Joker x 2 
+- 1 point=E x 15, A x 9, I x 8, N x 6, O x 6, R x 6, S x 6, T x 6, L x 5
+- 2 points=D x 3, M x 3, G x 2
+- 3 points=B x 2, C x 2, P x 2
+- 4 points=F x 2, H x 2, V x 2
+- 8 points=J x 1, Q x 1
+- 10 points=K x 1, W x 1,X x 1,Y x 1, Z x 1
+  
+Cases :
+- Case & = lettre compte double 
+- Case % = lettre compte triple 
+- Case @ = mot compte double 
+- Case § = mot compte double 
+
+
+COMMENCEMENT D'UNE PARTIE :
+Chaque joueur tire au hasard 7 lettres dans la pioche. A vous d'essayer de faire une ou plusieurs combinaisons de mots. 
+Le premier ˆ jouer doit obligatoirement poser son mot au centre du plateau sur la case #.  
+Le deuxime ˆ jouer doit s'appuyer sur une lettre du mot du premier pour poser le sien. 
+Ainsi continue le jeu. 
+
+
+RéGLES : 
+- Pour poser son mot, chaque joueur doit s'appuyer sur une lettre d'un mot dŽjˆ posŽ. 
+- Un joueur peut procŽder ˆ l'Žchange d'une ou plusieurs lettres en piochant d'autres lettres au hasard. Cela lui fait passer son tour. 
+
+
+CALCUL DES POINTS :
+- Pour obtenir le score d'un mot, on additionne la valeur de toutes les lettres des nouveaux mots formŽs ( y compris les lettres dŽjˆ posŽes sur le plateau). Attention il faut prendre en compte les cases spŽciales ( voir " VALEUR DES CASES ET DES LETTRES "). 
+- Si un mot est posŽ sur deux cases " mot compte double " ou " mot compte triple ", la valeur du mot est multipliŽe par 4 ou 9. 
+- Attention chaque case spŽciale ne peut servir qu'une seule et unique fois. 
+- Si un joueur parvient ˆ poser ses 7 lettres d'un seul coup, il rŽalise un " Scrabble "  Cela lui rapporte 50 points supplŽmentaires. 
+
+
+FIN DE PARTIE : 
+La partie prend fin quand la pioche est vide et qu'un joueur pose toutes ses lettres. Ce joueur prend un bonus valant la somme des valeurs des lettres des autres joueurs. 
+Celui qui a obtenu le plus de points gagne la partie. 
+
+
+TRUCS ET ASTUCES : 
+- Pensez ˆ vos conjugaisons, elles pourraient s'avŽrer tre trs utiles. 
+- Pensez ˆ des mots qui conviendraient ˆ un " Scrabble " ( voir " CALCUL DES POINTS "
+- En complŽtant un mot dŽjˆ existant ( rajout de terminaisons) vous ajoutez les points de ce mots. 
+
+
+Vous avez maintenant toutes les clefs en main. Bon jeu ˆ vous et que le meilleur gagne !
