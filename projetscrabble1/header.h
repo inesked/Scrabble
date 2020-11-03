@@ -18,14 +18,14 @@
 //faire structure joueur avec (lettres, points,
 
 /** Définition des structures **/
-
-typedef struct
+/*
+typedef struct lettre
 {
     char nom;
     int nbOcc;
     int valeur;
-}Lettre;
-
+}t_lettre;
+*/
 
 /** Définition des variables globales et tableaux **/
 

@@ -30,7 +30,7 @@ Cases :
 - Case & = lettre compte double 
 - Case % = lettre compte triple 
 - Case @ = mot compte double 
-- Case § = mot compte double 
+- Case § = mot compte triple
 
 
 COMMENCEMENT D'UNE PARTIE :
