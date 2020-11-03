@@ -37,10 +37,10 @@
 	<stdlib.h>
 	<time.h>
 
-1604328721 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\main.c
+1604446904 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\main.c
 	"header.h"
 
-1604345979 c:\users\admin\documents\github\projetscrabble\projetscrabble1\header.h
+1604443909 c:\users\admin\documents\github\projetscrabble\projetscrabble1\header.h
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -58,7 +58,7 @@
 1604293341 c:\users\admin\documents\github\projetscrabble\projetscrabble1\plateau.c
 	"header.h"
 
-1604328755 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\deroulement.c
+1604439845 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\deroulement.c
 	"header.h"
 
 1604276431 c:\users\admin\documents\github\projetscrabble\projetscrabble1\ecriremot.c
@@ -68,7 +68,7 @@
 
 1604285017 c:\users\admin\documents\github\projetscrabble\projetscrabble1\aide.c
 
-1604328701 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\sauvegarde.c
+1604439845 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\sauvegarde.c
 	"header.h"
 
 1604286608 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\aide.c
@@ -104,5 +104,11 @@
 	"header.h"
 
 1604434177 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\joueur.c
+	"header.h"
+
+1604441488 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\joueur.c
+	"header.h"
+
+1604446967 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\pioche.c
 	"header.h"
 

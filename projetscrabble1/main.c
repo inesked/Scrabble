@@ -31,6 +31,7 @@ int main()
             break;
 
         case 4:
+            creerPioche();
             break;
 
         case 5:

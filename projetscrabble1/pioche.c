@@ -1,12 +1,35 @@
 #include "header.h"
 #define TAILLE_TAB 15
 
-typedef struct lettre
+
+
+void creerPioche()
 {
-    char nom;
-    int nbOcc;
-    int valeur;
-} t_lettre;
+    int i;
+    FILE *file;
+    file = fopen("lettre.txt", "r");
+
+    if(file==NULL){
+        printf("Pb ouverture du fichier lettre.txt\n");
+	}
+
+	for(i=0; i<TAILLE_PIOCHE; i++)
+    {
+        fscanf(file, "%c %d %d\n", &pioche[i].nom, &pioche[i].nbOcc, &pioche[i].valeur);
+    }
+
+    affichePioche(pioche);
+}
+
+void affichePioche(lettre pioche[26])
+{
+    int i;
+    for(i=0; i<TAILLE_PIOCHE; i++)
+    {
+        printf("%c %d %d\n", pioche[i].nom, pioche[i].nbOcc, pioche[i].valeur);
+    }
+}
+
 
 int scoreMot(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT])
 {

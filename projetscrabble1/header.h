@@ -13,6 +13,7 @@
 #define TAILLE_CEL 2
 #define TAILLE_TAB 15
 #define TAILLE_MOT 15
+#define TAILLE_PIOCHE 26
 
 //faire strucuture Partie avec (joueur, temps, pioche, afficher les points des joueurs)
 //faire structure joueur avec (lettres, points,
@@ -27,6 +28,20 @@ typedef struct lettre
 }t_lettre;
 */
 
+typedef struct lettre
+{
+    char nom;
+    int nbOcc;
+    int valeur;
+} lettre;
+
+typedef struct listeLettre
+{
+    lettre *l;
+    struct listeLettre *suivant;
+}listeLettre;
+
+
 /** Définition des variables globales et tableaux **/
 
 char sens;  //Prend la valeur V ou H pour désigner le sens du mot sur le plateau
@@ -34,8 +49,9 @@ int ligne; //numéro de ligne entré pour placé le mot
 int colonne; //numéro de colonne entré pour placé le mot
 int i, j, k; //variable de parcours
 int cpt; //Permet d'indiquer au programme si on est au premier tour pour le placement du premier mot
-char mot[15]; //chaine de caractère qui contient le mot à placer
 
+char mot[15]; //chaine de caractère qui contient le mot à placer
+lettre pioche[26]; //contient la pioche
 char grille[TAILLE_TAB][TAILLE_TAB]; //
 char tab[TAILLE_TAB][TAILLE_TAB]; //tableau qui contient le plateau de jeu
 
@@ -63,3 +79,7 @@ void aide();
 void sauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
 void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
 void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB]);
+
+
+void affichePioche(lettre pioche[TAILLE_PIOCHE]);
+void creerPioche();
