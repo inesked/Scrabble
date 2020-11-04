@@ -13,23 +13,79 @@ void creerPioche()
         printf("Pb ouverture du fichier lettre.txt\n");
 	}
 
+
+
 	for(i=0; i<TAILLE_PIOCHE; i++)
     {
         fscanf(file, "%c %d %d\n", &pioche[i].nom, &pioche[i].nbOcc, &pioche[i].valeur);
     }
 
     affichePioche(pioche);
+
 }
 
-void affichePioche(lettre pioche[26])
+void affichePioche(lettre pioche[TAILLE_PIOCHE])
 {
     int i;
+    printf("\n");
     for(i=0; i<TAILLE_PIOCHE; i++)
     {
         printf("%c %d %d\n", pioche[i].nom, pioche[i].nbOcc, pioche[i].valeur);
     }
+    printf("\n");
 }
 
+void creerChevalet()
+{
+    srand(time (NULL));
+
+    int i,j, k;
+    for (k = 0; k<7 ; k++)
+    {
+        i = rand()%27+1;
+        if(pioche[i].nbOcc > 0)
+        {
+            chevalet[k].nom = pioche[i].nom;
+            chevalet[k].valeur = pioche[i].valeur;
+            pioche[i].nbOcc--;
+        }
+        else{
+            i = rand()%27+1;
+            chevalet[k].nom = pioche[i].nom;
+            chevalet[k].valeur = pioche[i].valeur;
+            pioche[i].nbOcc--;
+        }
+
+    }
+    //recherche des lettres identiques dans le chevalets
+
+    for(k = 0; k<7; k++)
+    {
+        chevalet[k].nbOcc =0;
+        for(j = 0; j<7;j++)
+        {
+            if(chevalet[k].nom == chevalet[j].nom)
+            {
+                chevalet[k].nbOcc = chevalet[k].nbOcc+1;
+                //suppCase(chevalet, j);
+            }
+        }
+        printf("%d%c ", chevalet[k].nbOcc, chevalet[k].nom);
+    }
+   // affichePioche(pioche);
+}
+
+void suppCase(lettre chevalet[TAILLE_CHE], int j)
+{
+    int i;
+
+    for(i= j-1; i<7; i++)
+    {
+        chevalet[i].nom = chevalet[i+1].nom;
+        chevalet[i].nbOcc = chevalet[i+1].nbOcc;
+        chevalet[i].valeur = chevalet[i+1].valeur;
+    }
+}
 
 int scoreMot(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT])
 {

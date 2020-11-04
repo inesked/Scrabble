@@ -32,6 +32,7 @@ int main()
 
         case 4:
             creerPioche();
+            creerChevalet();
             break;
 
         case 5:

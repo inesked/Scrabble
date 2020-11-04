@@ -37,14 +37,15 @@
 	<stdlib.h>
 	<time.h>
 
-1604446904 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\main.c
+1604456012 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\main.c
 	"header.h"
 
-1604443909 c:\users\admin\documents\github\projetscrabble\projetscrabble1\header.h
+1604456221 c:\users\admin\documents\github\projetscrabble\projetscrabble1\header.h
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	<string.h>
+	<time.h>
 	"plateau.c"
 	"deplacement.c"
 	"ecriremot.c"
@@ -106,9 +107,9 @@
 1604434177 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\joueur.c
 	"header.h"
 
-1604441488 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\joueur.c
+1604457037 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\joueur.c
 	"header.h"
 
-1604446967 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\pioche.c
+1604457053 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\pioche.c
 	"header.h"
 

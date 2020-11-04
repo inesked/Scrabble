@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <string.h>
-
+#include <time.h>
 /*
 #include "plateau.c"
 #include "deplacement.c"
@@ -14,19 +14,14 @@
 #define TAILLE_TAB 15
 #define TAILLE_MOT 15
 #define TAILLE_PIOCHE 26
+#define TAILLE_CHE 7
+
 
 //faire strucuture Partie avec (joueur, temps, pioche, afficher les points des joueurs)
 //faire structure joueur avec (lettres, points,
 
 /** Définition des structures **/
-/*
-typedef struct lettre
-{
-    char nom;
-    int nbOcc;
-    int valeur;
-}t_lettre;
-*/
+
 
 typedef struct lettre
 {
@@ -34,12 +29,6 @@ typedef struct lettre
     int nbOcc;
     int valeur;
 } lettre;
-
-typedef struct listeLettre
-{
-    lettre *l;
-    struct listeLettre *suivant;
-}listeLettre;
 
 
 /** Définition des variables globales et tableaux **/
@@ -52,6 +41,7 @@ int cpt; //Permet d'indiquer au programme si on est au premier tour pour le plac
 
 char mot[15]; //chaine de caractère qui contient le mot à placer
 lettre pioche[26]; //contient la pioche
+lettre chevalet[TAILLE_CHE];
 char grille[TAILLE_TAB][TAILLE_TAB]; //
 char tab[TAILLE_TAB][TAILLE_TAB]; //tableau qui contient le plateau de jeu
 
@@ -83,3 +73,5 @@ void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB]);
 
 void affichePioche(lettre pioche[TAILLE_PIOCHE]);
 void creerPioche();
+void creerChevalet();
+void suppCase(lettre chevalet[TAILLE_CHE],int j);
