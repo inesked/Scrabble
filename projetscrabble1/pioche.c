@@ -72,7 +72,7 @@ void creerChevalet()
         }
         printf("%d%c ", chevalet[k].nbOcc, chevalet[k].nom);
     }
-   // affichePioche(pioche);
+    affichePioche(pioche);
 }
 
 void suppCase(lettre chevalet[TAILLE_CHE], int j)

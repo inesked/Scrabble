@@ -27,7 +27,7 @@ int main()
 
         case 3:
             /** Affiche le fichier aide qui contient les règles du jeu et les explications du déroulement du jeu**/
-            aide();
+//            aide();
             break;
 
         case 4:
@@ -42,6 +42,7 @@ int main()
             break;
 
         case 6:
+            chrono();
             //test affichage
             //ecriremot();
             break;
