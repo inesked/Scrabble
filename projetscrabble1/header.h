@@ -30,15 +30,6 @@ typedef struct lettre
     int valeur;
 } lettre;
 
-typedef struct joueur
-{
-    char nom[15];
-    int score;
-    lettre chevalet[TAILLE_CHE];
-}joueur;
-joueur tabJ[4];
-
-
 
 /** Définition des variables globales et tableaux **/
 
@@ -82,6 +73,5 @@ void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB]);
 
 void affichePioche(lettre pioche[TAILLE_PIOCHE]);
 void creerPioche();
-lettre creerChevalet();
+void creerChevalet();
 void suppCase(lettre chevalet[TAILLE_CHE],int j);
-void initJoueur();

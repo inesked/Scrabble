@@ -4,8 +4,6 @@
 int main()
 {
     int choix;
-    srand(time (NULL));
-
 
     while( choix != 5)
     {
@@ -34,8 +32,7 @@ int main()
 
         case 4:
             creerPioche();
-            //creerChevalet();
-            initJoueur();
+            creerChevalet();
             break;
 
         case 5:
@@ -45,7 +42,7 @@ int main()
             break;
 
         case 6:
-            //chrono();
+            chrono();
             //test affichage
             //ecriremot();
             break;
