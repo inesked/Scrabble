@@ -20,7 +20,7 @@ void creerPioche()
         fscanf(file, "%c %d %d\n", &pioche[i].nom, &pioche[i].nbOcc, &pioche[i].valeur);
     }
 
-    affichePioche(pioche);
+    //affichePioche(pioche);
 
 }
 
@@ -35,10 +35,9 @@ void affichePioche(lettre pioche[TAILLE_PIOCHE])
     printf("\n");
 }
 
-void creerChevalet()
+lettre creerChevalet()
 {
-    srand(time (NULL));
-
+    //lettre chevalet[TAILLE_CHE];
     int i,j, k;
     for (k = 0; k<7 ; k++)
     {
@@ -55,7 +54,6 @@ void creerChevalet()
             chevalet[k].valeur = pioche[i].valeur;
             pioche[i].nbOcc--;
         }
-
     }
     //recherche des lettres identiques dans le chevalets
 
@@ -73,6 +71,8 @@ void creerChevalet()
         printf("%d%c ", chevalet[k].nbOcc, chevalet[k].nom);
     }
     affichePioche(pioche);
+    return chevalet[TAILLE_CHE];
+
 }
 
 void suppCase(lettre chevalet[TAILLE_CHE], int j)
