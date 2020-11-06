@@ -3,11 +3,13 @@
 #include <conio.h>
 #include <string.h>
 #include <time.h>
+
 /*
 #include "plateau.c"
 #include "deplacement.c"
 #include "ecriremot.c"
 */
+
 #define TAILLE_MAX 1000
 #define TAILLE_GRILLE 15
 #define TAILLE_CEL 2
@@ -30,6 +32,13 @@ typedef struct lettre
     int valeur;
 } lettre;
 
+typedef struct joueur
+{
+    char nom[15];
+    int score;
+    char chevalet[TAILLE_CHE];
+}joueur;
+
 
 /** Définition des variables globales et tableaux **/
 
@@ -38,10 +47,12 @@ int ligne; //numéro de ligne entré pour placé le mot
 int colonne; //numéro de colonne entré pour placé le mot
 int i, j, k; //variable de parcours
 int cpt; //Permet d'indiquer au programme si on est au premier tour pour le placement du premier mot
+int nbJoueur;
 
+joueur tabJ[4];
 char mot[15]; //chaine de caractère qui contient le mot à placer
 lettre pioche[26]; //contient la pioche
-lettre chevalet[TAILLE_CHE];
+//lettre chevalet[TAILLE_CHE];
 char grille[TAILLE_TAB][TAILLE_TAB]; //
 char tab[TAILLE_TAB][TAILLE_TAB]; //tableau qui contient le plateau de jeu
 
@@ -73,5 +84,14 @@ void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB]);
 
 void affichePioche(lettre pioche[TAILLE_PIOCHE]);
 void creerPioche();
-void creerChevalet();
-void suppCase(lettre chevalet[TAILLE_CHE],int j);
+void piocher(char chevalet[TAILLE_CHE]);
+void creerChevalet(char tab[TAILLE_CHE], int j);
+void suppCase(char chevalet[TAILLE_CHE],int j);
+
+int scoreLettre(char c);
+int scoreMot(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT]);
+void initJoueur();
+void chrono();
+int verifPioche();
+int verifMot(char mot[15], char chevalet[TAILLE_CHE]);
+int validJoueur();

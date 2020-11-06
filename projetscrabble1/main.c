@@ -17,6 +17,8 @@ int main()
         {
         case 1:
             //nouvelle partie
+            creerPioche();
+            initJoueur();
             nvllePartie();
             break;
 
@@ -31,8 +33,7 @@ int main()
             break;
 
         case 4:
-            creerPioche();
-            creerChevalet();
+            initJoueur();
             break;
 
         case 5:

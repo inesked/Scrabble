@@ -38,10 +38,16 @@
 	<stdlib.h>
 	<time.h>
 
-1604456012 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\main.c
+1604632241 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\main.c
 	"header.h"
 
-1604456221 c:\users\admin\documents\github\projetscrabble\projetscrabble1\header.h
+1604158116 ated upstream
+	<time.h>
+	"plateau.c"
+	"deplacement.c"
+	"ecriremot.c"
+
+1604675163 c:\users\admin\documents\github\projetscrabble\projetscrabble1\header.h
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -50,6 +56,17 @@
 	"plateau.c"
 	"deplacement.c"
 	"ecriremot.c"
+
+1604400850 shed changes
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"header.h"
+	"header.h"
+	"header.h"
+
+1604430337 .c"
 
 1604276431 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\ecriremot.c
 	"header.h"
@@ -60,7 +77,7 @@
 1604293341 c:\users\admin\documents\github\projetscrabble\projetscrabble1\plateau.c
 	"header.h"
 
-1604439845 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\deroulement.c
+1604677712 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\deroulement.c
 	"header.h"
 
 1604276431 c:\users\admin\documents\github\projetscrabble\projetscrabble1\ecriremot.c
@@ -70,7 +87,7 @@
 
 1604285017 c:\users\admin\documents\github\projetscrabble\projetscrabble1\aide.c
 
-1604439845 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\sauvegarde.c
+1604610693 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\sauvegarde.c
 	"header.h"
 
 1604286608 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\aide.c
@@ -108,12 +125,11 @@
 1604497089 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\joueur.c
 	"header.h"
 
-1604457037 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\joueur.c
+1604630803 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\joueur.c
 	"header.h"
 
-1604457053 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\pioche.c
+1604678560 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\pioche.c
 	"header.h"
 
 1604501030 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\pioche.c
-	"header.h"
 

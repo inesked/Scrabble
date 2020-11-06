@@ -35,33 +35,50 @@ void affichePioche(lettre pioche[TAILLE_PIOCHE])
     printf("\n");
 }
 
-void creerChevalet()
+int verifPioche()
+{
+    int cpt =0;
+    for(i=0; i<TAILLE_PIOCHE; i++)
+    {
+        if(pioche[i].nbOcc <=0)
+        {
+            cpt++;
+        }
+    }
+    if( cpt == 27) return 1;
+    else return 0;
+}
+
+void creerChevalet(char chevalet[TAILLE_CHE], int j)
 {
     srand(time (NULL));
 
-    int i,j, k;
+    int i, k;
     for (k = 0; k<7 ; k++)
     {
         i = rand()%27+1;
-        if(pioche[i].nbOcc > 0)
+        if((pioche[i].nbOcc) = 0)
         {
-            chevalet[k].nom = pioche[i].nom;
-            chevalet[k].valeur = pioche[i].valeur;
-            pioche[i].nbOcc--;
-        }
-        else{
-            i = rand()%27+1;
-            chevalet[k].nom = pioche[i].nom;
-            chevalet[k].valeur = pioche[i].valeur;
+            while(pioche[i].nbOcc < 1)
+            {
+                i = rand()%27+1;
+                tabJ[j].chevalet[k] = pioche[i].nom;
+                //chevalet[k].valeur = pioche[i].valeur;
+                pioche[i].nbOcc--;
+            }
+        }else{
+            tabJ[j].chevalet[k] = pioche[i].nom;
+            //chevalet[k].valeur = pioche[i].valeur;
             pioche[i].nbOcc--;
         }
 
     }
     //recherche des lettres identiques dans le chevalets
 
+    /*
     for(k = 0; k<7; k++)
     {
-        chevalet[k].nbOcc =0;
+        //chevalet[k].nbOcc =0;
         for(j = 0; j<7;j++)
         {
             if(chevalet[k].nom == chevalet[j].nom)
@@ -70,21 +87,74 @@ void creerChevalet()
                 //suppCase(chevalet, j);
             }
         }
-        printf("%d%c ", chevalet[k].nbOcc, chevalet[k].nom);
-    }
+        printf("%c ",  chevalet[k]);
+    }*/
     affichePioche(pioche);
 }
 
-void suppCase(lettre chevalet[TAILLE_CHE], int j)
+void piocher(char chevalet[TAILLE_CHE])
+{
+    srand(time (NULL));
+
+    int i;
+
+    do{
+        i = rand()%27+1;
+        tabJ[j].chevalet[7] = pioche[i].nom;
+        //chevalet[k].valeur = pioche[i].valeur;
+        pioche[i].nbOcc--;
+    }while(pioche[i].nbOcc < 1);
+
+}
+
+
+
+void suppCase(char chevalet[TAILLE_CHE], int j)
 {
     int i;
 
     for(i= j-1; i<7; i++)
     {
-        chevalet[i].nom = chevalet[i+1].nom;
-        chevalet[i].nbOcc = chevalet[i+1].nbOcc;
-        chevalet[i].valeur = chevalet[i+1].valeur;
+        chevalet[i] = chevalet[i+1];
     }
+}
+
+int scoreLettre(char c)
+{
+    int valeur;
+
+    if( c == 'A' || c == 'a' || c == 'E' || c == 'e' || c == 'I' || c == 'i'|| c == 'L' || c == 'l' || c == 'N'|| c == 'n'
+       || c == 'O' || c == 'o' || c == 'R' || c == 'r' || c == 'S' || c == 's' || c == 'T' || c == 't' || c == 'U' || c == 'u')
+    {
+        valeur = 1;
+
+    }else if( c == 'D' || c == 'd' || c == 'G' || c == 'g' || c == 'M'|| c == 'm')
+    {
+        valeur = 2;
+
+    }else if( c == 'B' || c == 'b' || c == 'C' || c == 'c' || c == 'P' || c == 'p')
+    {
+        valeur = 3;
+
+    }else if( c == 'F' || c == 'f' || c == 'H' || c == 'h' || c == 'V' || c == 'v')
+    {
+        valeur = 4;
+
+    }else if( c == 'J' || c == 'j'|| c == 'Q' || c == 'q')
+    {
+        valeur = 8;
+
+    }else if( c == 'K' || c == 'k' || c == 'W' || c == 'w' || c == 'X' || c == 'x'
+             || c == 'Y' || c == 'y' || c == 'Z'|| c == 'z')
+    {
+        valeur = 10;
+
+    }else if (c == '?')
+    {
+        valeur = 0;
+    }
+
+    return valeur;
 }
 
 int scoreMot(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT])
