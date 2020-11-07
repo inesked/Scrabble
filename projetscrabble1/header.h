@@ -3,7 +3,7 @@
 #include <conio.h>
 #include <string.h>
 #include <time.h>
-
+#include <windows.h>
 /*
 #include "plateau.c"
 #include "deplacement.c"
@@ -84,9 +84,10 @@ void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB]);
 
 void affichePioche(lettre pioche[TAILLE_PIOCHE]);
 void creerPioche();
-void piocher(char chevalet[TAILLE_CHE]);
+void piocher(char chevalet[TAILLE_CHE], int j);
 void creerChevalet(char tab[TAILLE_CHE], int j);
 void suppCase(char chevalet[TAILLE_CHE],int j);
+void majChevalet(char chevalet[TAILLE_CHE], char mot[TAILLE_MOT]);
 
 int scoreLettre(char c);
 int scoreMot(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT]);
@@ -95,3 +96,6 @@ void chrono();
 int verifPioche();
 int verifMot(char mot[15], char chevalet[TAILLE_CHE]);
 int validJoueur();
+
+
+void Color(int couleurDuTexte,int couleurDeFond);

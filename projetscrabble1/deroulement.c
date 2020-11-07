@@ -2,15 +2,15 @@
 
 
 
-/** Création d'une nouvelle partie de jeu **/
+/** CrÃ©ation d'une nouvelle partie de jeu **/
 
 void nvllePartie()
 {
     int cpt = 0;
     int fin = verifPioche();
     int v, vj;
-    char c;
-    /** Initailisation de la grille de départ **/
+    //char c;
+    /** Initailisation de la grille de dÃ©part **/
     initTableau(tab);
     dessinerGrille(TAILLE_GRILLE, TAILLE_CEL, tab);
 
@@ -31,7 +31,7 @@ void nvllePartie()
 
         if(cpt > 0)
         {
-            /** Saisie par l'utilisateur des coordonnées du mot **/
+            /** Saisie par l'utilisateur des coordonnÃ©es du mot **/
 
             do
             {
@@ -57,6 +57,7 @@ void nvllePartie()
         }
         while(sens != 'H' && sens != 'V' && sens != 'h' && sens != 'v');
 
+        chrono();
 
        do{
             printf("Mot (pas plus de 15 lettres):");
@@ -76,7 +77,7 @@ void nvllePartie()
             placeMot(mot, tab, ligne, colonne, TAILLE_TAB, sens);
             cpt++;
 
-
+            //majChevalet(tabJ[i].chevalet, mot);
         }
         else{
             tabJ[i].score += 10;
@@ -85,7 +86,61 @@ void nvllePartie()
         printf("\n");
     }
 
+            /**Blindage mot ï¿½crit existe**/
+
+/*
+    FILE *fichier;
+    fichier=fopen("dictionnaire.txt","r");
+	for(i=0; i<22740; i++)
+    {
+         fscanf(fichier, "%c\n", &mot[i]);
     }
+    printf("test1");
+    printf("test2");
+    if(fichier==NULL)
+    {
+            printf("test3");
+        printf("Pb ouverture du fichier lettre.txt\n");
+	}
+
+    printf("test4");
+ fprintf(fichier, "%s\n", &mot[i]);
+    if(strcmp(mot, fichier)==0)
+    {
+            printf("test5");
+        printf("Le mot saisi existe dans le dictionnaire\n");
+    }
+    else
+    if(strcmp(mot, fichier)==1)
+    {
+        printf("Le mot saisi n'existe pas dans le dictionnaire\n");
+        printf("Veuillez en saisir un autre\n");
+    }
+*/
+
+        /**Blindage lettres utilisï¿½es pour ecrire mot avec lettres qui son dans le chevalet**/
+    /*    for (i=0; i<strlen(mot); i++)
+         {
+             printf("test");
+             if (strcmp (mot[i], chevalet->nom) !=0)
+             {
+                  printf("Le mot que vous avez saisi, n'est pas avec les lettres que vous avez pioche.\nRegardez votre chevalet :)\n\n");
+             }
+             else
+                 if (strcmp (mot[i], chevalet->nom) ==0)
+        printf("test2");
+         }*/
+
+        //printf("\n");
+       // Color(8,0);
+        //dessinerGrille(TAILLE_TAB, TAILLE_CEL, tab);
+        //Color(13,0);
+       // placeMot(mot, tab, ligne, colonne, TAILLE_TAB, sens);
+        //Color(15,0);
+        //cpt++;
+    }
+
+
     /* TEST DE VERIF
     printf("mot a ecrire : %s", mot);
 
@@ -99,7 +154,9 @@ void nvllePartie()
     //dessinerGrille(TAILLE_TAB, TAILLE_CEL, tab);
 }
 
-/** Vérifie que le mot entré est bien composé des lettres du chevalet **/
+
+
+/** VÃ©rifie que le mot entrÃ© est bien composÃ© des lettres du chevalet **/
 int verifMot(char mot[15], char chevalet[TAILLE_CHE])
 {
     int tmpChevalet[26], tmpMot[26];
@@ -190,7 +247,7 @@ int verifMot(char mot[15], char chevalet[TAILLE_CHE])
 
 }
 
-/** Demande au joueur suivant si'ili valide le mot entré par le joueur actuel**/
+/** Demande au joueur suivant si'ili valide le mot entrÃ© par le joueur actuel**/
 int validJoueur()
 {
     char c;
@@ -297,12 +354,12 @@ void ecritMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], char sens)
 
             if (sens == 'H' || sens == 'h')
             {
-                //on écrit de gauche à droite
+                //on Ã©crit de gauche Ã  droite
                 colonne++;
             }
             if (sens == 'V' || sens == 'v')
             {
-                //on écrit de haut en bas
+                //on Ã©crit de haut en bas
                 ligne++;
             }
         }
@@ -316,12 +373,12 @@ void ecritMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], char sens)
 
             if (sens == 'H' || sens == 'h')
             {
-                //on écrit de gauche à droite
+                //on Ã©crit de gauche Ã  droite
                 colonne++;
             }
             if (sens == 'V' || sens == 'v')
             {
-                //on écrit de haut en bas
+                //on Ã©crit de haut en bas
                 ligne++;
             }
         }
@@ -333,20 +390,17 @@ void ecritMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], char sens)
 void chrono()
 {
    clock_t t;
-   int cur_sec=0;
+   int secactu=0;
 
-   printf("Appuyez sur \"Entree\" :\n");
    getchar();
    t = clock();
-   printf("Encore : \n");
 
    do
    {
-      if((clock()-t) / (double) CLOCKS_PER_SEC > cur_sec+1)
+      if((clock()-t) / (double) CLOCKS_PER_SEC > secactu+1)
       {
-         cur_sec++;
-         printf("Deja %d seconde\n", cur_sec);
+         secactu++;
+         printf("\nDeja %d secondes, il vous reste %d secondes\n", secactu, (30-secactu));
       }
-   }while(cur_sec != 5);
+   }while(secactu != 5);
 }
-

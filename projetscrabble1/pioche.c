@@ -45,7 +45,7 @@ int verifPioche()
             cpt++;
         }
     }
-    if( cpt == 27) return 1;
+    if( cpt == 26) return 1;
     else return 0;
 }
 
@@ -57,7 +57,7 @@ void creerChevalet(char chevalet[TAILLE_CHE], int j)
     for (k = 0; k<7 ; k++)
     {
         i = rand()%27+1;
-        if((pioche[i].nbOcc) = 0)
+        if((pioche[i].nbOcc) == 0)
         {
             while(pioche[i].nbOcc < 1)
             {
@@ -92,7 +92,7 @@ void creerChevalet(char chevalet[TAILLE_CHE], int j)
     affichePioche(pioche);
 }
 
-void piocher(char chevalet[TAILLE_CHE])
+void piocher(char chevalet[TAILLE_CHE], int j)
 {
     srand(time (NULL));
 
@@ -100,7 +100,7 @@ void piocher(char chevalet[TAILLE_CHE])
 
     do{
         i = rand()%27+1;
-        tabJ[j].chevalet[7] = pioche[i].nom;
+        tabJ[j].chevalet[j] = pioche[i].nom;
         //chevalet[k].valeur = pioche[i].valeur;
         pioche[i].nbOcc--;
     }while(pioche[i].nbOcc < 1);
@@ -113,9 +113,33 @@ void suppCase(char chevalet[TAILLE_CHE], int j)
 {
     int i;
 
-    for(i= j-1; i<7; i++)
+    for(i= j; i<7; i++)
     {
         chevalet[i] = chevalet[i+1];
+    }
+}
+
+void majChevalet(char chevalet[TAILLE_CHE], char mot[TAILLE_MOT])
+{
+    int i,j, tmp;
+    int lg= strlen(mot);
+
+    //Suppression des lettes utilisées dans le chevalet
+    for( i = 0; i < lg; i++)
+    {
+        for(j=0; j< TAILLE_CHE ; j++)
+        {
+            if(mot[i] == chevalet[j])
+            {
+                suppCase(chevalet, j);
+                tmp++;
+            }
+        }
+    }
+
+    for( j= tmp-1; j<TAILLE_CHE;j++)
+    {
+        piocher(chevalet, j);
     }
 }
 

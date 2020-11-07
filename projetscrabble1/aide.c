@@ -8,12 +8,41 @@ void aide()
     fichier = fopen("aide.txt", "r"); // r pour read
     if (fichier != NULL)
     {
-        while (fgets(mot, TAILLE_MAX, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
+        while (fgets(mot, TAILLE_MAX, fichier) != NULL) // On lit le fichier tant qu'on ne reÃ§oit pas d'erreur (NULL)
         {
-            printf("%s", mot); // On affiche la chaîne qu'on vient de lire
+            printf("%s", mot); // On affiche la chaÃ®ne qu'on vient de lire
         }
 
         fclose(fichier);
     }
 
 }
+
+  /*
+    0 : Noir
+    1 : Bleu foncï¿½
+    2 : Vert foncï¿½
+    3 : Turquoise
+    4 : Rouge foncï¿½
+    5 : Violet
+    6 : Vert caca d'oie
+    7 : Gris clair
+    8 : Gris foncï¿½
+    9 : Bleu fluo
+    10 : Vert fluo
+    11 : Turquoise
+    12 : Rouge fluo
+    13 : Violet 2
+    14 : Jaune
+    15 : Blanc
+    */
+
+void Color(int couleurDuTexte,int couleurDeFond) // fonction d'affichage de couleurs
+{
+    HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
+}
+/*
+    Color(12,3);
+    printf("Le texte va avoir la couleur 12 et le Fond la couleur 3\n");
+*/

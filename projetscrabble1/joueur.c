@@ -1,10 +1,7 @@
 #include "header.h"
 
-//<<<<<<< Updated upstream
 
 
-
-//=======
 /** Définition de la structure Joueur qui contient nom, score et le chevalet d'un joueur **/
 
 /** Définition de la structure ListeJoueur qui contient la liste de tous les joueurs **/
@@ -42,5 +39,3 @@ void initJoueur()
     }
 }
 
-
-//>>>>>>> Stashed changes
