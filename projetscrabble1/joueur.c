@@ -2,12 +2,7 @@
 
 
 
-/** Définition de la structure Joueur qui contient nom, score et le chevalet d'un joueur **/
-
-/** Définition de la structure ListeJoueur qui contient la liste de tous les joueurs **/
-
-
-/** Initialisation de laliste de Joueur à NULL **/
+/** Initialisation du tableau de Joueur à NULL **/
 void initJoueur()
 {
 
@@ -19,10 +14,10 @@ void initJoueur()
         printf("Nombre de joueur: ");
         scanf("%d", &nbJoueur);
         printf("\n");
-    }while( nbJoueur < 2 || nbJoueur > 4);
+    }while( nbJoueur < 2 || nbJoueur > 4);  // blindage pour que le nombre de joueur soit compris entre 2 et 4
 
 
-    for( i =0 ; i< nbJoueur; i++)
+    for( i =0 ; i< nbJoueur; i++)           // attribution d'un chevallet à chaque joueur
     {
         printf("Nom du joueur%d:", i+1);
         scanf("%s", tabJ[i].nom);
@@ -38,14 +33,19 @@ void initJoueur()
         printf("\n");
     }
 }
+
 /*
-void meilleurScore(joueur tabJ[4])
+void meilleurScore(joueur tabJ[4], int nbJoueur)
 {
-    int max;
-    max = tabJ
-    for(i = 0; i< 4 ; i++)
+    int indice;
+    int tmp =0;
+    for(i = 0; i< nbJoueur ; i++)
     {
-        if()
+        if(tmp< tabJ[i].score)
+        {
+            tmp = tabJ[]
+        }
     }
+    printf("%s a le meilleur score, %d points", tabJ[indice].nom, tabJ[indice].score);
 }
 */

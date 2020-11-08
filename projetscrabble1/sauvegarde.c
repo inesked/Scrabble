@@ -2,11 +2,11 @@
 
 #define CARAC_MAX 20
 #define ESPACE " "
-
+//initialisation du sp de sauvegarde avec en parametre le tableau
 void sauvegarde(char tab[TAILLE_TAB][TAILLE_TAB])
 {
     int i,j;
-    FILE *file = NULL;
+    FILE *file = NULL;                      //ouverture du txt sauvegarde en écriture
     file = fopen("sauvegarde.txt", "w+");
 
     if( file != NULL)
@@ -19,78 +19,77 @@ void sauvegarde(char tab[TAILLE_TAB][TAILLE_TAB])
             }
             fprintf(file, "\n");
         }
-        fclose(file);
+        fclose(file);                       // fermeture du txt sauvegarde
     }
 }
 
-void sauvegardeJoueur(joueur tabJ[4])
+void sauvegardeJoueur(joueur tabJ[4])       // initialisation de la sauvegarde joeur avec en  parametre le tab joueur
 {
     int i,j;
     FILE *file = NULL;
-    file = fopen("joueur.txt", "w+");
+    file = fopen("joueur.txt", "w+");       //ouverture du txt joueur en écriture
 
     if( file != NULL)
     {
-        fprintf(file, "%d", nbJoueur);
+        fprintf(file, "%d", nbJoueur);      //ecriture dans le fichier du nombre de joueur
         fprintf(file, "\n");
         for(i=0; i< 4 ; i++)
         {
-
             if (tabJ[i].nom != NULL)
             {
-                fprintf(file, "%s", tabJ[i].nom);
+                fprintf(file, "%s", tabJ[i].nom);       //écriture dans le fichier du nom du joueur
                 fprintf(file, "\n");
-                fprintf(file, "%d", tabJ[i].score);
+                fprintf(file, "%d", tabJ[i].score);     //écriture dans le fichier du score du joueur
                 fprintf(file, "\n");
 
                 for(j=0; j< TAILLE_CHE; j++)
                 {
-                    fprintf(file, "%c", tabJ[i].chevalet[j]);
+                    fprintf(file, "%c", tabJ[i].chevalet[j]); //écriture dans le fichier des caracteres restants du chevalet
                 }
-                fprintf(file, "\n");
+                fprintf(file, "\n"); //retour à la ligne
             }
         }
-        fclose(file);
+        fclose(file); //fermeture du fichier sauvegarde
     }
 }
 
-void sauvegardePioche(lettre pioche[26])
+void sauvegardePioche(lettre pioche[26])        //initialisation de la sauvegarde de la pioche avec en parametre les 26 lettres de l'alphabet + le bonus
 {
     int i;
     FILE *file = NULL;
-    file = fopen("pioche.txt", "w+");
+    file = fopen("pioche.txt", "w+"); // ouverture du ficher pioche.txt
 
     if( file != NULL)
     {
         for(i=0; i< 26 ; i++)
         {
-            fprintf(file, "%c", pioche[i].nom);
-            fprintf(file, "%d", pioche[i].nbOcc);
-            fprintf(file, "%d", pioche[i].valeur);
+            fprintf(file, "%c", pioche[i].nom);     //  ecriture dans le fichier du nom de la lettre
+            fprintf(file, "%d", pioche[i].nbOcc);   //  ecriture dans le fichier du nombre d'occurence
+            fprintf(file, "%d", pioche[i].valeur);  //  écriure dans le fichier du nombre de point porté par la letrre
 
             fprintf(file, "\n");
         }
-        fclose(file);
+        fclose(file);                               // fermeture du fichier
     }
 
 }
 
-void historique(joueur tabJ[4])
+void historique(joueur tabJ[4])                 //initialisation de l'historique de tout les joueurs et de tout les scores
 {
-    int i,j;
+    int i;
     FILE *file = NULL;
     file = fopen("historique.txt", "a");
 
     if( file != NULL)
     {
         //while(k)
-        fprintf(file, "Score d'une partie:\n");
+        fprintf(file, "Score d'une partie:\n");     //écriture dans le fichier
         for(i=0; i< 4 ; i++)
         {
 
-            if (tabJ[i].nom != NULL)
+            if (tabJ[i].nom != NULL)            //si le nom n'est pas nul
             {
-                fprintf(file, "%s %d", tabJ[i].nom, tabJ[i].score);
+                fprintf(file, "%s %d", tabJ[i].nom, tabJ[i].score); //2criture du nom et du score du joueur
                 fprintf(file, "\n");
             }
         }
@@ -101,11 +100,11 @@ void historique(joueur tabJ[4])
 
 
 
-void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB])
+void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB])       //initialisation de la lecture de sauvegarde
 {
     int i, j;
     FILE *file = NULL;
-    file = fopen("sauvegarde.txt", "r");
+    file = fopen("sauvegarde.txt", "r"); //ouverture du fichier en mode lecutre
 
     if(file != NULL)
     {
@@ -113,8 +112,7 @@ void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB])
         {
             for( j= 0 ; j< TAILLE_TAB ; j++)
             {
-                fscanf(file, "%c", &tab[i][j]);
-
+                fscanf(file, "%c", &tab[i][j]);     //lecture du tableau
             }
             fscanf(file, "\n");
         }
@@ -122,7 +120,7 @@ void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB])
     }
 }
 
-void lireSauvegardeJoueur(joueur tabJ[4])
+void lireSauvegardeJoueur(joueur tabJ[4])       //initialisation de la sauvegarde joueur avec son nom, son score et son chevalet en LECTURE
 {
     int i, j;
     FILE *file = NULL;
@@ -140,7 +138,6 @@ void lireSauvegardeJoueur(joueur tabJ[4])
             fscanf(file, "%d", &tabJ[i].score);
             fscanf(file, "\n");
 
-
             for(j=0; j< 7; j++)
             {
                 fscanf(file, "%c", &tabJ[i].chevalet[j]);
@@ -151,11 +148,11 @@ void lireSauvegardeJoueur(joueur tabJ[4])
         fclose(file);
 }
 
-void lireSauvegardePioche(lettre pioche[TAILLE_PIOCHE])
+void lireSauvegardePioche(lettre pioche[TAILLE_PIOCHE]) //lecture de la sauvegarde de la pioche en mode read
 {
     int i;
     FILE *file = NULL;
-    file = fopen("pioche.txt", "r");
+    file = fopen("pioche.txt", "r");            // lecture du nom, nombre d'occurence et valeure portée par la lettre
 
     if(file != NULL)
     {
@@ -169,7 +166,7 @@ void lireSauvegardePioche(lettre pioche[TAILLE_PIOCHE])
 }
 
 
-void partieSauvegarder()
+void partieSauvegarder() //appele de toute les premieres fonctions
 {
     int i, j;
     int choix;
@@ -273,6 +270,7 @@ void partieSauvegarder()
             m = 1;
         }
     }
+    //meilleurScore(tabJ, nbJoueur);
     historique(tabJ);
     menu();
 

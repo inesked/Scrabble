@@ -16,12 +16,13 @@ void nvllePartie()
     initTableau(tab);
     dessinerGrille(TAILLE_GRILLE, TAILLE_CEL, tab);
 
-
+// Boucle qui determine tout les tours de jeu
     while(fin == 0 && m == 0)
     {
         fin = verifPioche();
         //printf("%d\n", fin);
 
+    //Permet de faire jouer tous les joueurs
         for(i = 0; i < nbJoueur; i++)
         {
             printf("Joueur %d:\t nom: %s\t score: %d\n", i+1, tabJ[i].nom, tabJ[i].score);
@@ -31,72 +32,77 @@ void nvllePartie()
             }
             printf("\n");
 
-        if(cpt > 0)
-        {
-            /** Saisie par l'utilisateur des coordonnées du mot **/
+            if(cpt > 0)
+            {
+                /** Saisie par l'utilisateur des coordonnées du mot **/
+
+                do
+                {
+                    printf("\n");
+                    printf("Numero de ligne (entre 1 et 15): ");
+                    scanf("%d", &ligne);
+
+                    printf("Numero de colonne (entre 1 et 15): ");
+                    scanf("%d", &colonne);
+                    printf("\n");
+                }
+                while(ligne>15 || ligne<1 || colonne<1 || colonne>15);
+            }
+
+            /** Saisie du sens du mot par l'utilisateur **/
 
             do
             {
-                printf("\n");
-                printf("Numero de ligne (entre 1 et 15): ");
-                scanf("%d", &ligne);
-
-                printf("Numero de colonne (entre 1 et 15): ");
-                scanf("%d", &colonne);
+                printf("Dans quel sens souhaitez-vous ecrire votre mot ? (H ou V): ");
+                fflush(stdin);
+                scanf("%c", &sens);
                 printf("\n");
             }
-            while(ligne>15 || ligne<1 || colonne<1 || colonne>15);
+            while(sens != 'H' && sens != 'V' && sens != 'h' && sens != 'v');
+
+            chrono();
+            /** Saisie du mot par l'utilisateur pour vérification des lettres dans le chevalet **/
+            do
+            {
+                printf("Mot (pas plus de 15 lettres):");
+                fflush(stdin);
+                scanf("%s", mot);
+                v = verifMot(mot, tabJ[i].chevalet);
+
+            }
+            while(v == 0);
+            //miniDico(mot);
+
+
+            vj = validJoueur();
+
+            /** Place le mot et maj le chevalet avant de calculer le score du mot**/
+            if(vj == 1)
+            {
+                //dessinerGrille(TAILLE_TAB, TAILLE_CEL, tab);
+                placeMot(mot, tab, ligne, colonne, TAILLE_TAB, sens);
+                printf("test");
+                majChevalet(tabJ[i].chevalet, mot, i);
+                tabJ[i].score = tabJ[i].score + calculScore(tab,mot, ligne, colonne, sens);
+                cpt++;
+
+
+            }
+            else
+            {
+                tabJ[i].score += 10;
+            }
+
+            printf("\n");
+
         }
-
-        /** Saisie du sens du mot par l'utilisateur **/
-
+        //Demande à l'utilisateur si il souhaite continuer à jouer ou sauvegarder et retourner au menu
         do
         {
-            printf("Dans quel sens souhaitez-vous ecrire votre mot ? (H ou V): ");
-            fflush(stdin);
-            scanf("%c", &sens);
-            printf("\n");
-        }
-        while(sens != 'H' && sens != 'V' && sens != 'h' && sens != 'v');
-
-
-
-        /** Saisie du mot par l'utilisateur pour vérification des lettres dans le chevalet **/
-       do{
-            printf("Mot (pas plus de 15 lettres):");
-            fflush(stdin);
-            scanf("%s", mot);
-
-            v = verifMot(mot, tabJ[i].chevalet);
-        }while(v == 0);
-
-        //chrono();
-
-        vj = validJoueur();
-
-        /** Place le mot et maj le chevalet avant de calculer le score du mot**/
-        if(vj == 1)
-        {
-            //dessinerGrille(TAILLE_TAB, TAILLE_CEL, tab);
-            placeMot(mot, tab, ligne, colonne, TAILLE_TAB, sens);
-            printf("test");
-            majChevalet(tabJ[i].chevalet, mot, i);
-            tabJ[i].score = tabJ[i].score + calculScore(tab,mot, ligne, colonne, sens);
-            cpt++;
-
-
-        }
-        else{
-            tabJ[i].score += 10;
-        }
-
-        printf("\n");
-
-        }
-        do{
             printf("Souhaitez vous continuez ou retourner au menu et sauvegarder le mot? (1 ou 2): \n");
             scanf("%d", &choix);
-        }while(choix != 1 && choix != 2);
+        }
+        while(choix != 1 && choix != 2);
 
         if(choix == 2)
         {
@@ -106,6 +112,7 @@ void nvllePartie()
             m = 1;
         }
     }
+    //meilleurScore(tabJ, nbJoueur);
     historique(tabJ);
     menu();
 
@@ -122,6 +129,43 @@ void nvllePartie()
     //dessinerGrille(TAILLE_TAB, TAILLE_CEL, tab);
 }
 
+//Compare le mot écrit avec tous les mots présents dans le dictionnaire
+void miniDico(char mot[TAILLE_MOT])
+{
+    int b=0;
+    //printf("Saisir mot\n");
+    //scanf("%s", mot);
+    char temp[TAILLE_MAX];
+    FILE *fichier;
+    fichier=fopen("minidico.txt","r");
+
+    //Compare le mot avec tout les mots du dico grace à une boucle
+    for(i=0; i<671; i++)
+    {
+        fscanf(fichier, "%s\n", temp);
+        if(fichier==NULL)
+        {
+            printf("Pb ouverture du fichier lettre.txt\n");
+        }
+        if(strcmp(mot, temp)==0)
+        {
+            printf("Le mot saisi existe dans le dictionnaire\n");
+            //i=3;
+            b = 1;
+        }
+        else if(strcmp(mot, temp)!=0 && b==0)
+        {
+            b = 0;
+        }
+    }
+    if(b==0)
+    {
+        printf("Le mot saisi n'existe pas dans le dictionnaire\n");
+    }
+    fclose(fichier);
+
+}
+
 
 
 /** Vérifie que le mot entré est bien composé des lettres du chevalet **/
@@ -132,14 +176,14 @@ int verifMot(char mot[15], char chevalet[TAILLE_CHE])
     char c;
     int lg = strlen(mot);
 
-    for (i =0; i < 26 ;i++)
+    for (i =0; i < 26 ; i++)
     {
         tmpChevalet[i] = 0;
         tmpMot[i]= 0;
     }
 
 
-    //stock lesoccurences du chevalet dans un tableau d'entier temporaire
+    //stock les occurences du chevalet dans un tableau d'entier temporaire
     for(i=0; i< TAILLE_CHE ; i++)
     {
         c = chevalet[i];
@@ -172,6 +216,7 @@ int verifMot(char mot[15], char chevalet[TAILLE_CHE])
         else if( c== 'Z' || c == 'z') tmpChevalet[25] += 1;
     }
 
+    //Stock les occurences des lettres du mot dans un fichier temporaire
     for(i=0; i< lg ; i++)
     {
         c = mot[i];
@@ -204,18 +249,21 @@ int verifMot(char mot[15], char chevalet[TAILLE_CHE])
         else if( c== 'Z' || c == 'z') tmpMot[25] += 1;
     }
 
+    //Compare les occurences des deux tableaux et
     for( i=0; i<26 ; i++)
     {
-        if( tmpChevalet[i]< tmpMot[i]){
+        if( tmpChevalet[i]< tmpMot[i])
+        {
             printf("Veuillez ecrire avec les lettres du chevalet\n");
             return v= 0;
         }
     }
+
     return v=1;
 
 }
 
-/** Demande au joueur suivant si'ili valide le mot entré par le joueur actuel**/
+/** Demande au joueur suivant s'il valide le mot entré par le joueur actuel**/
 int validJoueur()
 {
     char c;
@@ -223,14 +271,16 @@ int validJoueur()
     scanf("%s", &c);
 
     int v;
+    //si oui
     if (c == 'O' || c == 'o')
     {
         v= 1;
-    }else if( c == 'N' || c == 'n')
+    }
+    //si non
+    else if( c == 'N' || c == 'n')
     {
         v = 0;
     }
-
     return v;
 }
 
@@ -248,9 +298,10 @@ void placeMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], int ligne,
     printf("h = %d\n", h);
     printf("sens = %c\n", sens);
     */
-
+//si on écrit horizontalement
     if (sens == 'H' || sens == 'h')
     {
+        //verife horizontale est vlidé h =1
         if( h == 1)
         {
             ecritMot(mot, tab, sens);
@@ -260,8 +311,11 @@ void placeMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], int ligne,
             printf("Le mot ne peut pas etre ecrit horizontalement");
 
     }
+// si on écrit verticalement
     else if(sens == 'V' || sens == 'v')
     {
+    //verif horizontale est validé v =1
+
         if( v == 1)
         {
             ecritMot(mot, tab, sens);
@@ -273,12 +327,12 @@ void placeMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], int ligne,
     }
 }
 
-
+//Vérification horizontale, renvoie un booléen
 int horizontal(char mot[TAILLE_MOT],int ligne, int colonne, int taille_tab)
 {
     int longueur = strlen(mot);
     //int i;
-
+//vérifie que le mot n'est pas trop long pour le tableau et qui'il ne dépasse pas
     if( longueur > TAILLE_TAB || TAILLE_TAB-colonne < longueur )
     {
         printf("Erreur, le mot est trop long\n");
@@ -291,11 +345,12 @@ int horizontal(char mot[TAILLE_MOT],int ligne, int colonne, int taille_tab)
 
 }
 
+//Vérification horizontale, renvoie un booléen
 int vertical(char mot[TAILLE_MOT],int ligne, int colonne, int taille_tab)
 {
     int longueur = strlen(mot);
     //int j;
-
+//vérifie que le mot n'est pas trop long pour le tableau et qui'il ne dépasse pas
     if( longueur > TAILLE_TAB || TAILLE_TAB-ligne < longueur )
     {
         printf("Erreur, le mot est trop long\n");
@@ -309,11 +364,13 @@ int vertical(char mot[TAILLE_MOT],int ligne, int colonne, int taille_tab)
 
 }
 
-
+//Parcourt le tableau pour écrire le mot
 void ecritMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], char sens)
 {
     int i;
     //printf("%d", cpt);
+
+    //Condtion pour le premier mot du tableau
     if(cpt == 0)
     {
         colonne = 8;
@@ -335,6 +392,8 @@ void ecritMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], char sens)
         }
         cpt++;
     }
+    // si on est au tour suivant alors prend les coordonnes entrées en paramètres par l'utilisateur pour
+    // pour faire le parcours
     else
     {
         for(i = 0; i < strlen(mot); i++)
@@ -359,18 +418,20 @@ void ecritMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], char sens)
 
 void chrono()
 {
-   clock_t t;
-   int secactu=0;
+    clock_t t;
+    int secactu=0;
+    int s = 5;
+    getchar();
+    t = clock();
 
-   getchar();
-   t = clock();
-
-   do
-   {
-      if((clock()-t) / (double) CLOCKS_PER_SEC > secactu+1)
-      {
-         secactu++;
-         printf("\nDeja %d secondes, il vous reste %d secondes\n", secactu, (30-secactu));
-      }
-   }while(secactu != 5);
+    do
+    {
+        if((clock()-t) / (double) CLOCKS_PER_SEC > secactu+1)
+        {
+            secactu++;
+            printf("\nDeja %d secondes, il vous reste %d secondes\n", secactu, (s-secactu));
+        }
+    }
+    while(secactu != s);
+    printf("Temps ecoule !!!\n");
 }

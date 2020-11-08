@@ -10,3 +10,69 @@ ze 10
  0
  0
 
+Score d'une partie:
+kat 7
+ze 10
+0 0
+0 0
+
+Score d'une partie:
+kat 7
+ze 10
+0 0
+0 0
+
+Score d'une partie:
+aymen 4
+amine 5
+ 0
+ 0
+
+Score d'une partie:
+aymen 4
+amine 5
+0 0
+0 0
+
+Score d'une partie:
+aymen 4
+amine 5
+0 0
+0 0
+
+Score d'une partie:
+ines 8
+paul 7
+sana 4
+ 0
+
+Score d'une partie:
+ines 8
+paul 7
+sana 4
+0 0
+
+Score d'une partie:
+ines 8
+paul 7
+sana 4
+0 0
+
+Score d'une partie:
+t1 11
+t2 7
+ 0
+ 0
+
+Score d'une partie:
+t1 11
+t2 7
+0 0
+0 0
+
+Score d'une partie:
+t1 11
+t2 7
+0 0
+0 0
+

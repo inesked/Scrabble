@@ -4,11 +4,6 @@
 #include <string.h>
 #include <time.h>
 #include <windows.h>
-/*
-#include "plateau.c"
-#include "deplacement.c"
-#include "ecriremot.c"
-*/
 
 #define TAILLE_MAX 1000
 #define TAILLE_GRILLE 15
@@ -17,14 +12,20 @@
 #define TAILLE_MOT 15
 #define TAILLE_PIOCHE 26
 #define TAILLE_CHE 7
+/**
+sources
+Cours et TP ing 3â€‹
+OpenClassRoomâ€‹
+https://www.daniweb.com/ pour le plateau â€‹
+(https://www.daniweb.com/programming/software-development/threads/195830/scrabble-in-c) â€‹
+http://www.gtoal.com/ certains algorithmesâ€‹
+https://www.mathworks.com/matlabcentral/answers/276744-how-do-you-write-to-a-fopen-text-file-without-deleting-previous-textâ€‹
+https://melem.developpez.com/tutoriels/langage-c/fichiers/?page=cours#LIII-Aâ€‹
+https://openclassrooms.com/fr/courses/19980-apprenez-a-programmer-en-c/16421-lire-et-ecrire-dans-des-fichiers pour les structures â€‹
+**/
 
 
-//faire strucuture Partie avec (joueur, temps, pioche, afficher les points des joueurs)
-//faire structure joueur avec (lettres, points,
-
-/** Définition des structures **/
-
-
+/** DÃ©finition des structures **/
 typedef struct lettre
 {
     char nom;
@@ -40,45 +41,46 @@ typedef struct joueur
 }joueur;
 
 
-/** Définition des variables globales et tableaux **/
+/** DÃ©finition des variables globales et tableaux **/
 
-char sens;  //Prend la valeur V ou H pour désigner le sens du mot sur le plateau
-int ligne; //numéro de ligne entré pour placé le mot
-int colonne; //numéro de colonne entré pour placé le mot
+char sens;  //Prend la valeur V ou H pour dÃ©signer le sens du mot sur le plateau
+int ligne; //numÃ©ro de ligne entrÃ© pour placÃ© le mot
+int colonne; //numÃ©ro de colonne entrÃ© pour placÃ© le mot
 int i, j, k; //variable de parcours
 int cpt; //Permet d'indiquer au programme si on est au premier tour pour le placement du premier mot
 int nbJoueur;
 
 joueur tabJ[4];
-char mot[15]; //chaine de caractère qui contient le mot à placer
+char mot[15]; //chaine de caractÃ¨re qui contient le mot Ã  placer
 lettre pioche[26]; //contient la pioche
 //lettre chevalet[TAILLE_CHE];
 char grille[TAILLE_TAB][TAILLE_TAB]; //
 char tab[TAILLE_TAB][TAILLE_TAB]; //tableau qui contient le plateau de jeu
 
-/** Définition des prototypes des fonctions **/
+/** DÃ©finition des prototypes des fonctions **/
 
 //dessine et affiche le plateau
 void initTableau(char tab[TAILLE_TAB][TAILLE_TAB]);
 void dessinerGrille(int tailleGrille, int tailleCel, char tab[TAILLE_TAB][TAILLE_TAB]);
 
-//Place le mot et l'écrit dans le tableau
+//Place le mot et l'Ã©crit dans le tableau
 void placeMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], int ligne, int colonne, int taille_tab, char sens);
 void ecritMot(char mot[TAILLE_MOT] ,char tab[TAILLE_TAB][TAILLE_TAB], char sens);
 
-//vérifie si le mot peut être écrit à l'horizontale ou à la verticale
+//vÃ©rifie si le mot peut Ãªtre Ã©crit Ã  l'horizontale ou Ã  la verticale
 int horizontal(char mot[TAILLE_MOT],int ligne, int colonne, int taille_tab);
 int vertical(char mot[TAILLE_MOT] ,int ligne, int colonne, int taille_tab);
 
-// Définit une nouvelle partie
+// DÃ©finit une nouvelle partie
 void nvllePartie();
 
-//Affiche les règles du jeu
+//Affiche les rÃ¨gles du jeu
 void aide();
 
-
+//Sauvegarde de la partie
 void partieSauvegarder();
 
+// creation de la pioche et du chevalet, avec mise Ã  jour en fonction des lettres dÃ©posÃ©s sur le plateau de jeu
 void affichePioche(lettre pioche[TAILLE_PIOCHE]);
 void creerPioche();
 void piocher(char chevalet[TAILLE_CHE],int k, int j);
@@ -86,20 +88,28 @@ void creerChevalet(char tab[TAILLE_CHE], int j);
 void suppCase(char chevalet[TAILLE_CHE],int j);
 void majChevalet(char chevalet[TAILLE_CHE], char mot[TAILLE_MOT], int idjoueur);
 
+//attribution d'un score aux lettres avec bonus
 int scoreLettre(char c);
 int bonus(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT], int ligne, int colonne);
 void initJoueur();
+
+//chrono pour que le joueur ne s'eternise pas
 void chrono();
+// verification que le mot est composÃ© des lettres de la pioche
 int verifPioche();
 int verifMot(char mot[15], char chevalet[TAILLE_CHE]);
+
+//validation par le joueur
 int validJoueur();
 
+//score avec les bonus
 int bonusMot(int ligne, int colonne);
 int bonusLettre( int ligne, int colonne);
 int calculScore(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT], int ligne, int colonne, char sens);
 
-
+//donction couleur donnÃ©e sur campus
 void Color(int couleurDuTexte,int couleurDeFond);
+//menu
 void menu();
 
 //Fait une sauvegarde du plateau dans un fichier texte avant de quitter le programme
@@ -110,4 +120,12 @@ void sauvegardeJoueur(joueur tabJ[4]);
 void lireSauvegardePioche(lettre pioche[TAILLE_PIOCHE]);
 void lireSauvegardeJoueur(joueur tabJ[4]);
 void historique();
+
+//affichage du meilleur score parmis les joueurs
+void meilleurScore(joueur tabJ[4], int nbJoueur);
+
+//verification que le mot Ã©crit existe dans le dictionnaire
+void miniDico(char mot[TAILLE_MOT]);
+
+
 

@@ -3,11 +3,11 @@
 
 
 
-void creerPioche()
+void creerPioche()          //creation de la pioche
 {
     int i;
     FILE *file;
-    file = fopen("lettre.txt", "r");
+    file = fopen("lettre.txt", "r");        //ouverture du ficheier en lecture
 
     if(file==NULL){
         printf("Pb ouverture du fichier lettre.txt\n");
@@ -15,7 +15,7 @@ void creerPioche()
 
 
 
-	for(i=0; i<TAILLE_PIOCHE; i++)
+	for(i=0; i<TAILLE_PIOCHE; i++)  //lecutre dans le fichier du nom de la lettre, de son nombre d'occurence et de son nombre de point
     {
         fscanf(file, "%c %d %d\n", &pioche[i].nom, &pioche[i].nbOcc, &pioche[i].valeur);
     }
@@ -24,7 +24,7 @@ void creerPioche()
 
 }
 
-void affichePioche(lettre pioche[TAILLE_PIOCHE])
+void affichePioche(lettre pioche[TAILLE_PIOCHE]) //affichage de la pioche
 {
     int i;
     printf("\n");
@@ -35,7 +35,7 @@ void affichePioche(lettre pioche[TAILLE_PIOCHE])
     printf("\n");
 }
 
-int verifPioche()
+int verifPioche() // verification qu'il y a toujours des lettres dans la pioche
 {
     int cpt =0;
     for(i=0; i<TAILLE_PIOCHE; i++)
@@ -49,7 +49,7 @@ int verifPioche()
     else return 0;
 }
 
-void creerChevalet(char chevalet[TAILLE_CHE], int j)
+void creerChevalet(char chevalet[TAILLE_CHE], int j) //crï¿½ation du chevalet de 7 lettres avec des lettres piochï¿½es au hasard parmis les 26+le jocker
 {
     srand(time (NULL));
 
@@ -92,7 +92,8 @@ void creerChevalet(char chevalet[TAILLE_CHE], int j)
     //affichePioche(pioche);
 }
 
-void piocher(char chevalet[TAILLE_CHE],int k, int j)
+//
+void piocher(char chevalet[TAILLE_CHE],int k, int j) //action de piocher une lettre au hasard parmis les 26+le jocker et verification que la lettre existe toujours
 {
     srand(time (NULL));
 
@@ -108,18 +109,18 @@ void piocher(char chevalet[TAILLE_CHE],int k, int j)
 }
 
 
-void suppCase(char chevalet[TAILLE_CHE], int j)
+void suppCase(char chevalet[TAILLE_CHE], int j) // supressin de la case et remplacement par un espace en cas d'utlisiation de la lettre
 {
    chevalet[j] = ' ';
 }
 
 void majChevalet(char chevalet[TAILLE_CHE], char mot[TAILLE_MOT], int idjoueur)
-{
+{ //mise ï¿½ jour du chevalet
     int i, j;
    // int tmp;
     int lg= strlen(mot);
 
-    //Suppression des lettes utilisées dans le chevalet
+    //Suppression des lettes utilisï¿½es dans le chevalet
     for( i = 0; i < lg; i++)
     {
         for(j=0; j< TAILLE_CHE ; j++)
@@ -142,7 +143,7 @@ void majChevalet(char chevalet[TAILLE_CHE], char mot[TAILLE_MOT], int idjoueur)
 
 }
 
-int scoreLettre(char c)
+int scoreLettre(char c) // score des lettres si pioche[i].valeur ne fonctionne pas
 {
     int valeur;
 
@@ -180,57 +181,51 @@ int scoreLettre(char c)
     return valeur;
 }
 
-int bonusMot( int ligne, int colonne)
+int bonusMot( int ligne, int colonne) //bonus avec mot compte double et triple
 {
-    //int taillemot = strlen(mot);
-    //int i=0;
-    //int scoreM;
-    //int scoreL;
-    int bonusMot;
-    //int bonusLettre;
- //   int resultat;
+   // int bonusMot;
 
 
-//- Case § = mot compte triple
+//- Case ï¿½ = mot compte triple
         if ((ligne == 0 && colonne == 0)||(ligne == 0 && colonne == 7)||(ligne == 0 && colonne == 14)||(ligne == 7 && colonne == 0)||(ligne == 14 && colonne == 0)||(ligne == 14 && colonne == 7)||(ligne == 14 && colonne == 14)||(ligne == 7 && colonne == 14))
-            bonusMot = 3;
+            return 3;
 
 //- Case @ = mot compte double
         if ((ligne == 1 && colonne == 1)||(ligne == 2 && colonne == 2)||(ligne == 4 && colonne == 4)||(ligne == 3 && colonne == 3)||(ligne == 4 && colonne == 10)||(ligne == 1 && colonne == 13)||(ligne == 2 && colonne == 12)||(ligne == 3 && colonne == 11)||(ligne == 10 && colonne == 4)||(ligne == 12 && colonne == 2)||(ligne == 13 && colonne == 1)||(ligne == 10 && colonne == 10)||(ligne == 11 && colonne == 3)||(ligne == 11 && colonne == 11)||(ligne == 12 && colonne == 12)||(ligne == 13 && colonne == 13))
-            bonusMot = 2;
+            return 2;
         else
-            bonusMot = 0;
+            return 0;
 
-    return bonusMot;
+    //return bonusMot;
 }
 
-int bonusLettre( int ligne, int colonne)
+int bonusLettre( int ligne, int colonne) //bonus lettres
 {
-    int bonusLettre;
+    //int bonusLettre;
 
 //- Case & = lettre compte double
         if ((ligne == 3 && colonne == 0)||(ligne == 6 && colonne == 2)||(ligne == 0 && colonne == 3)||(ligne == 2 && colonne == 6)||(ligne == 6 && colonne == 6)||(ligne == 2 && colonne == 8)||(ligne == 3 && colonne == 7)||(ligne == 6 && colonne == 8)||
             (ligne == 0 && colonne == 11)||(ligne == 6 && colonne == 12)||(ligne == 3 && colonne == 14)||(ligne == 8 && colonne == 2)||(ligne == 7 && colonne == 3)||(ligne == 11 && colonne == 0)||(ligne == 8 && colonne == 6)||(ligne == 12 && colonne == 6)||
             (ligne == 14 && colonne == 3)||(ligne == 8 && colonne == 8)||(ligne == 11 && colonne == 7)||(ligne == 12 && colonne == 8)||(ligne == 7 && colonne == 11)||(ligne == 8 && colonne == 12)||(ligne == 14 && colonne == 11)||(ligne == 11 && colonne == 14))
         {
-            bonusLettre = 2;
+            return 2;
         }
 
 //- Case % = lettre compte triple
         if ((ligne == 5 && colonne == 1)||(ligne == 5 && colonne == 5)||(ligne == 1 && colonne == 5)||(ligne == 1 && colonne == 9)||(ligne == 5 && colonne == 9)||(ligne == 5 && colonne == 13)||(ligne == 9 && colonne == 13)||(ligne == 13 && colonne == 9)||(ligne == 13 && colonne == 5)||(ligne == 9 && colonne == 5)||(ligne == 9 && colonne == 1)||(ligne == 9 && colonne == 9))
            {
-               bonusLettre = 3;
+               return 3;
            }
 
         else
         {
-            bonusLettre = 0;
+            return 0;
         }
-    return bonusLettre;
+    //return bonusLettre;
 }
 
 int calculScore(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT], int ligne, int colonne, char sens)
-{
+{ //calcul du score
     int lg = strlen(mot);
     int k, p;
     int bLettre[lg];
@@ -240,16 +235,17 @@ int calculScore(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT], int lign
     int score = 0;
 
 
-//Récupération des bonus en fonctions de l'emplacement des lettres
+//Rï¿½cupï¿½ration des bonus en fonctions de l'emplacement des lettres
     if( sens == 'h' || sens == 'H')
     {
         for(k=0; k<lg ; k++)
         {
+            //printf("BL %d BM %d", bonusLettre(l,c), bonusMot(l, c));
             bLettre[k] = bonusLettre(l, c);
             bMot[k] = bonusMot(l, c);
-            l++;
-            printf(" lettre h: %d ", bLettre[k]);
-            printf(" mot h: %d ", bMot[k]);
+            c++;
+            //printf(" lettre h: %d ", bLettre[k]);
+            //printf(" mot h: %d ", bMot[k]);
         }
          printf("\n");
     }
@@ -260,14 +256,14 @@ int calculScore(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT], int lign
         {
             bLettre[k] = bonusLettre( l, c);
             bMot[k] = bonusMot( l, c);
-            c++;
-            printf("lettre v %d ", bLettre[k]);
-            printf("mot v%d ", bMot[k]);
+            l++;
+            //printf("lettre v %d ", bLettre[k]);
+            //printf("mot v%d ", bMot[k]);
         }
 
     }
 
-    //Calcul le score du mot en ajoutant lesbonus lettres au fur et à mesure du parcours du mot
+    //Calcul le score du mot en ajoutant lesbonus lettres au fur et ï¿½ mesure du parcours du mot
     for(k = 0; k< lg ; k++)
     {
         for(p =0; p<TAILLE_PIOCHE; p++)
@@ -305,7 +301,7 @@ int bonus(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT], int ligne, int
     for (i=0; i<taillemot; i++)
     {
 
-//- Case § = mot compte triple
+//- Case ï¿½ = mot compte triple
         if (tab[0][0]||tab[0][7]||tab[0][14]||tab[7][0]||tab[14][0]||tab[14][7]||tab[14][14]||tab[7][14])
             bonusMot=3;
 

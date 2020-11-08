@@ -38,7 +38,7 @@
 	<stdlib.h>
 	<time.h>
 
-1604846293 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\main.c
+1604872237 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\main.c
 	"header.h"
 
 1604158116 ated upstream
@@ -47,16 +47,13 @@
 	"deplacement.c"
 	"ecriremot.c"
 
-1604856378 c:\users\admin\documents\github\projetscrabble\projetscrabble1\header.h
+1604873893 c:\users\admin\documents\github\projetscrabble\projetscrabble1\header.h
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	<string.h>
 	<time.h>
 	<windows.h>
-	"plateau.c"
-	"deplacement.c"
-	"ecriremot.c"
 
 1604400850 shed changes
 	<stdio.h>
@@ -78,7 +75,7 @@
 1604858467 c:\users\admin\documents\github\projetscrabble\projetscrabble1\plateau.c
 	"header.h"
 
-1604856358 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\deroulement.c
+1604874468 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\deroulement.c
 	"header.h"
 
 1604276431 c:\users\admin\documents\github\projetscrabble\projetscrabble1\ecriremot.c
@@ -88,7 +85,7 @@
 
 1604285017 c:\users\admin\documents\github\projetscrabble\projetscrabble1\aide.c
 
-1604857524 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\sauvegarde.c
+1604873087 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\sauvegarde.c
 	"header.h"
 
 1604745130 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\aide.c
@@ -126,14 +123,14 @@
 1604497089 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\joueur.c
 	"header.h"
 
-1604858372 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\joueur.c
+1604873543 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\joueur.c
 	"header.h"
 
-1604835705 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\pioche.c
+1604874390 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\pioche.c
 	"header.h"
 
 1604501030 source:c:\users\inès\documents\github\projetscrabble\projetscrabble1\pioche.c
 
-1604852264 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\menu.c
+1604873612 source:c:\users\admin\documents\github\projetscrabble\projetscrabble1\menu.c
 	"header.h"
 
