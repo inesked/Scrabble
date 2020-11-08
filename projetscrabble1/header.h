@@ -77,8 +77,7 @@ void nvllePartie();
 void aide();
 
 
-void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB]);
-
+void partieSauvegarder();
 
 void affichePioche(lettre pioche[TAILLE_PIOCHE]);
 void creerPioche();
@@ -108,3 +107,7 @@ void sauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
 void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
 void sauvegardePioche(lettre pioche[TAILLE_PIOCHE]);
 void sauvegardeJoueur(joueur tabJ[4]);
+void lireSauvegardePioche(lettre pioche[TAILLE_PIOCHE]);
+void lireSauvegardeJoueur(joueur tabJ[4]);
+void historique();
+

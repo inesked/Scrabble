@@ -24,6 +24,7 @@ void dessinerGrille(int tailleTab, int tailleCel, char tab[TAILLE_TAB][TAILLE_TA
         {
             if(i% tailleCel == 0 || j% tailleCel == 0)
             {
+                Color(12,13);
                 c ='.';
             }
             else
@@ -37,6 +38,7 @@ void dessinerGrille(int tailleTab, int tailleCel, char tab[TAILLE_TAB][TAILLE_TA
                 //printf("%c", grille[i][j]);
 
             printf("%c ", c);
+            Color(15,0);
         }
         printf("\n");
     }

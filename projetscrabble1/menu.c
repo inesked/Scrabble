@@ -25,7 +25,8 @@ void menu()
             break;
 
         case 2:
-            partieSauvegarder(tab);
+
+            partieSauvegarder();
             //reprendre partie
             break;
 

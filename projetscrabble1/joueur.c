@@ -38,4 +38,14 @@ void initJoueur()
         printf("\n");
     }
 }
-
+/*
+void meilleurScore(joueur tabJ[4])
+{
+    int max;
+    max = tabJ
+    for(i = 0; i< 4 ; i++)
+    {
+        if()
+    }
+}
+*/

@@ -7,6 +7,7 @@
 void nvllePartie()
 {
     int choix;
+    int m =0;
     int cpt = 0;
     int fin = verifPioche();
     int v, vj;
@@ -16,10 +17,10 @@ void nvllePartie()
     dessinerGrille(TAILLE_GRILLE, TAILLE_CEL, tab);
 
 
-    while(fin == 0 )
+    while(fin == 0 && m == 0)
     {
         fin = verifPioche();
-        printf("%d\n", fin);
+        //printf("%d\n", fin);
 
         for(i = 0; i < nbJoueur; i++)
         {
@@ -58,7 +59,7 @@ void nvllePartie()
         }
         while(sens != 'H' && sens != 'V' && sens != 'h' && sens != 'v');
 
-        chrono();
+
 
         /** Saisie du mot par l'utilisateur pour vérification des lettres dans le chevalet **/
        do{
@@ -69,14 +70,14 @@ void nvllePartie()
             v = verifMot(mot, tabJ[i].chevalet);
         }while(v == 0);
 
-
+        //chrono();
 
         vj = validJoueur();
 
         /** Place le mot et maj le chevalet avant de calculer le score du mot**/
         if(vj == 1)
         {
-            dessinerGrille(TAILLE_TAB, TAILLE_CEL, tab);
+            //dessinerGrille(TAILLE_TAB, TAILLE_CEL, tab);
             placeMot(mot, tab, ligne, colonne, TAILLE_TAB, sens);
             printf("test");
             majChevalet(tabJ[i].chevalet, mot, i);
@@ -102,68 +103,11 @@ void nvllePartie()
             sauvegarde(tab);
             sauvegardeJoueur(tabJ);
             sauvegardePioche(pioche);
-            menu();
+            m = 1;
         }
-
-
-
-
-
-
-            /**Blindage mot ecrit existe**/
-
-/*
-    FILE *fichier;
-    fichier=fopen("dictionnaire.txt","r");
-	for(i=0; i<22740; i++)
-    {
-         fscanf(fichier, "%c\n", &mot[i]);
     }
-    printf("test1");
-    printf("test2");
-    if(fichier==NULL)
-    {
-            printf("test3");
-        printf("Pb ouverture du fichier lettre.txt\n");
-	}
-
-    printf("test4");
- fprintf(fichier, "%s\n", &mot[i]);
-    if(strcmp(mot, fichier)==0)
-    {
-            printf("test5");
-        printf("Le mot saisi existe dans le dictionnaire\n");
-    }
-    else
-    if(strcmp(mot, fichier)==1)
-    {
-        printf("Le mot saisi n'existe pas dans le dictionnaire\n");
-        printf("Veuillez en saisir un autre\n");
-    }
-*/
-
-        /**Blindage lettres utilis�es pour ecrire mot avec lettres qui son dans le chevalet**/
-    /*    for (i=0; i<strlen(mot); i++)
-         {
-             printf("test");
-             if (strcmp (mot[i], chevalet->nom) !=0)
-             {
-                  printf("Le mot que vous avez saisi, n'est pas avec les lettres que vous avez pioche.\nRegardez votre chevalet :)\n\n");
-             }
-             else
-                 if (strcmp (mot[i], chevalet->nom) ==0)
-        printf("test2");
-         }*/
-
-        //printf("\n");
-       // Color(8,0);
-        //dessinerGrille(TAILLE_TAB, TAILLE_CEL, tab);
-        //Color(13,0);
-       // placeMot(mot, tab, ligne, colonne, TAILLE_TAB, sens);
-        //Color(15,0);
-        //cpt++;
-    }
-
+    historique(tabJ);
+    menu();
 
     /* TEST DE VERIF
     printf("mot a ecrire : %s", mot);
