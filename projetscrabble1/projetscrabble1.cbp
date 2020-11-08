@@ -31,14 +31,29 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="aide.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="deroulement.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="ecriremot.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="header.h" />
+		<Unit filename="joueur.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="pioche.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="plateau.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sauvegarde.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions />

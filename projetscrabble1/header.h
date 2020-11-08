@@ -76,26 +76,35 @@ void nvllePartie();
 //Affiche les règles du jeu
 void aide();
 
-//Fait une sauvegarde du plateau dans un fichier texte avant de quitter le programme
-void sauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
-void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
+
 void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB]);
 
 
 void affichePioche(lettre pioche[TAILLE_PIOCHE]);
 void creerPioche();
-void piocher(char chevalet[TAILLE_CHE], int j);
+void piocher(char chevalet[TAILLE_CHE],int k, int j);
 void creerChevalet(char tab[TAILLE_CHE], int j);
 void suppCase(char chevalet[TAILLE_CHE],int j);
-void majChevalet(char chevalet[TAILLE_CHE], char mot[TAILLE_MOT]);
+void majChevalet(char chevalet[TAILLE_CHE], char mot[TAILLE_MOT], int idjoueur);
 
 int scoreLettre(char c);
-int scoreMot(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT]);
+int bonus(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT], int ligne, int colonne);
 void initJoueur();
 void chrono();
 int verifPioche();
 int verifMot(char mot[15], char chevalet[TAILLE_CHE]);
 int validJoueur();
 
+int bonusMot(int ligne, int colonne);
+int bonusLettre( int ligne, int colonne);
+int calculScore(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT], int ligne, int colonne, char sens);
+
 
 void Color(int couleurDuTexte,int couleurDeFond);
+void menu();
+
+//Fait une sauvegarde du plateau dans un fichier texte avant de quitter le programme
+void sauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
+void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB]);
+void sauvegardePioche(lettre pioche[TAILLE_PIOCHE]);
+void sauvegardeJoueur(joueur tabJ[4]);

@@ -2,17 +2,19 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="deroulement.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="aide.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6090" topLine="86" />
+			<Cursor1 position="878" topLine="20" />
 		</Cursor>
-		<Folding>
-			<Collapse line="93" />
-		</Folding>
 	</File>
-	<File name="joueur.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ecriremot.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="971" topLine="0" />
+			<Cursor1 position="559" topLine="13" />
+		</Cursor>
+	</File>
+	<File name="joueur.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="960" topLine="17" />
 		</Cursor>
 	</File>
 	<File name="plateau.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -20,29 +22,24 @@
 			<Cursor1 position="1201" topLine="39" />
 		</Cursor>
 	</File>
-	<File name="ecriremot.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="pioche.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="43" topLine="0" />
+			<Cursor1 position="2382" topLine="102" />
 		</Cursor>
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="deroulement.c" open="1" top="1" tabpos="5" split="0" active="1" splitpos="336" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="618" topLine="10" />
+			<Cursor1 position="1950" topLine="65" />
 		</Cursor>
 	</File>
-	<File name="sauvegarde.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="202" topLine="0" />
+			<Cursor1 position="1881" topLine="27" />
 		</Cursor>
 	</File>
-	<File name="header.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="header.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2943" topLine="62" />
-		</Cursor>
-	</File>
-	<File name="pioche.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="805" topLine="32" />
+			<Cursor1 position="2513" topLine="75" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

@@ -20,7 +20,7 @@ void creerPioche()
         fscanf(file, "%c %d %d\n", &pioche[i].nom, &pioche[i].nbOcc, &pioche[i].valeur);
     }
 
-    affichePioche(pioche);
+    //affichePioche(pioche);
 
 }
 
@@ -89,10 +89,10 @@ void creerChevalet(char chevalet[TAILLE_CHE], int j)
         }
         printf("%c ",  chevalet[k]);
     }*/
-    affichePioche(pioche);
+    //affichePioche(pioche);
 }
 
-void piocher(char chevalet[TAILLE_CHE], int j)
+void piocher(char chevalet[TAILLE_CHE],int k, int j)
 {
     srand(time (NULL));
 
@@ -100,7 +100,7 @@ void piocher(char chevalet[TAILLE_CHE], int j)
 
     do{
         i = rand()%27+1;
-        tabJ[j].chevalet[j] = pioche[i].nom;
+        tabJ[j].chevalet[k] = pioche[i].nom;
         //chevalet[k].valeur = pioche[i].valeur;
         pioche[i].nbOcc--;
     }while(pioche[i].nbOcc < 1);
@@ -108,20 +108,15 @@ void piocher(char chevalet[TAILLE_CHE], int j)
 }
 
 
-
 void suppCase(char chevalet[TAILLE_CHE], int j)
 {
-    int i;
-
-    for(i= j; i<7; i++)
-    {
-        chevalet[i] = chevalet[i+1];
-    }
+   chevalet[j] = ' ';
 }
 
-void majChevalet(char chevalet[TAILLE_CHE], char mot[TAILLE_MOT])
+void majChevalet(char chevalet[TAILLE_CHE], char mot[TAILLE_MOT], int idjoueur)
 {
-    int i,j, tmp;
+    int i, j;
+   // int tmp;
     int lg= strlen(mot);
 
     //Suppression des lettes utilisées dans le chevalet
@@ -131,16 +126,20 @@ void majChevalet(char chevalet[TAILLE_CHE], char mot[TAILLE_MOT])
         {
             if(mot[i] == chevalet[j])
             {
-                suppCase(chevalet, j);
-                tmp++;
+                chevalet[j] = ' ';
+                //suppCase(chevalet, j);
+                //tmp++;
             }
         }
     }
 
-    for( j= tmp-1; j<TAILLE_CHE;j++)
+    for( i = 0; i<TAILLE_CHE;i++)
     {
-        piocher(chevalet, j);
+        if(chevalet[i] == ' '){
+            piocher(chevalet,i,idjoueur );
+        }
     }
+
 }
 
 int scoreLettre(char c)
@@ -181,12 +180,126 @@ int scoreLettre(char c)
     return valeur;
 }
 
-int scoreMot(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT])
+int bonusMot( int ligne, int colonne)
+{
+    //int taillemot = strlen(mot);
+    //int i=0;
+    //int scoreM;
+    //int scoreL;
+    int bonusMot;
+    //int bonusLettre;
+ //   int resultat;
+
+
+//- Case § = mot compte triple
+        if ((ligne == 0 && colonne == 0)||(ligne == 0 && colonne == 7)||(ligne == 0 && colonne == 14)||(ligne == 7 && colonne == 0)||(ligne == 14 && colonne == 0)||(ligne == 14 && colonne == 7)||(ligne == 14 && colonne == 14)||(ligne == 7 && colonne == 14))
+            bonusMot = 3;
+
+//- Case @ = mot compte double
+        if ((ligne == 1 && colonne == 1)||(ligne == 2 && colonne == 2)||(ligne == 4 && colonne == 4)||(ligne == 3 && colonne == 3)||(ligne == 4 && colonne == 10)||(ligne == 1 && colonne == 13)||(ligne == 2 && colonne == 12)||(ligne == 3 && colonne == 11)||(ligne == 10 && colonne == 4)||(ligne == 12 && colonne == 2)||(ligne == 13 && colonne == 1)||(ligne == 10 && colonne == 10)||(ligne == 11 && colonne == 3)||(ligne == 11 && colonne == 11)||(ligne == 12 && colonne == 12)||(ligne == 13 && colonne == 13))
+            bonusMot = 2;
+        else
+            bonusMot = 0;
+
+    return bonusMot;
+}
+
+int bonusLettre( int ligne, int colonne)
+{
+    int bonusLettre;
+
+//- Case & = lettre compte double
+        if ((ligne == 3 && colonne == 0)||(ligne == 6 && colonne == 2)||(ligne == 0 && colonne == 3)||(ligne == 2 && colonne == 6)||(ligne == 6 && colonne == 6)||(ligne == 2 && colonne == 8)||(ligne == 3 && colonne == 7)||(ligne == 6 && colonne == 8)||
+            (ligne == 0 && colonne == 11)||(ligne == 6 && colonne == 12)||(ligne == 3 && colonne == 14)||(ligne == 8 && colonne == 2)||(ligne == 7 && colonne == 3)||(ligne == 11 && colonne == 0)||(ligne == 8 && colonne == 6)||(ligne == 12 && colonne == 6)||
+            (ligne == 14 && colonne == 3)||(ligne == 8 && colonne == 8)||(ligne == 11 && colonne == 7)||(ligne == 12 && colonne == 8)||(ligne == 7 && colonne == 11)||(ligne == 8 && colonne == 12)||(ligne == 14 && colonne == 11)||(ligne == 11 && colonne == 14))
+        {
+            bonusLettre = 2;
+        }
+
+//- Case % = lettre compte triple
+        if ((ligne == 5 && colonne == 1)||(ligne == 5 && colonne == 5)||(ligne == 1 && colonne == 5)||(ligne == 1 && colonne == 9)||(ligne == 5 && colonne == 9)||(ligne == 5 && colonne == 13)||(ligne == 9 && colonne == 13)||(ligne == 13 && colonne == 9)||(ligne == 13 && colonne == 5)||(ligne == 9 && colonne == 5)||(ligne == 9 && colonne == 1)||(ligne == 9 && colonne == 9))
+           {
+               bonusLettre = 3;
+           }
+
+        else
+        {
+            bonusLettre = 0;
+        }
+    return bonusLettre;
+}
+
+int calculScore(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT], int ligne, int colonne, char sens)
+{
+    int lg = strlen(mot);
+    int k, p;
+    int bLettre[lg];
+    int bMot[lg];
+    int c = colonne;
+    int l = ligne;
+    int score = 0;
+
+
+//Récupération des bonus en fonctions de l'emplacement des lettres
+    if( sens == 'h' || sens == 'H')
+    {
+        for(k=0; k<lg ; k++)
+        {
+            bLettre[k] = bonusLettre(l, c);
+            bMot[k] = bonusMot(l, c);
+            l++;
+            printf(" lettre h: %d ", bLettre[k]);
+            printf(" mot h: %d ", bMot[k]);
+        }
+         printf("\n");
+    }
+
+    else if( sens == 'v' || sens == 'V')
+    {
+        for(k=0; k<lg ; k++)
+        {
+            bLettre[k] = bonusLettre( l, c);
+            bMot[k] = bonusMot( l, c);
+            c++;
+            printf("lettre v %d ", bLettre[k]);
+            printf("mot v%d ", bMot[k]);
+        }
+
+    }
+
+    //Calcul le score du mot en ajoutant lesbonus lettres au fur et à mesure du parcours du mot
+    for(k = 0; k< lg ; k++)
+    {
+        for(p =0; p<TAILLE_PIOCHE; p++)
+        {
+            if( mot[k] == pioche[p].nom && bLettre[k] != 0)
+            {
+                score = score + (pioche[p].valeur)*bLettre[k];
+            }
+            else if(mot[k] == pioche[p].nom)
+            {
+                score = score + pioche[p].valeur;
+            }
+        }
+    }
+
+    for(k = 0; k< lg ; k++)
+    {
+        if(bMot[k] != 0)
+            score = score* bMot[k];
+    }
+
+    return score;
+}
+/*
+int bonus(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT], int ligne, int colonne, char sens)
 {
     int taillemot = strlen(mot);
     int i=0;
     int scoreM;
     int scoreL;
+    int bonusMot;
+    int bonusLettre;
  //   int resultat;
 
     for (i=0; i<taillemot; i++)
@@ -194,7 +307,7 @@ int scoreMot(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT])
 
 //- Case § = mot compte triple
         if (tab[0][0]||tab[0][7]||tab[0][14]||tab[7][0]||tab[14][0]||tab[14][7]||tab[14][14]||tab[7][14])
-            scoreM=scoreM*3;
+            bonusMot=3;
 
 //- Case @ = mot compte double
         if (tab[1][1]||tab[2][2]||tab[4][4]||tab[3][3]||tab[4][10]||tab[1][13]||tab[2][12]||tab[3][11]||tab[10][4]||tab[12][2]||tab[13][1]||tab[10][10]||tab[11][3]||tab[11][11]||tab[12][12]||tab[13][13])
@@ -212,4 +325,4 @@ int scoreMot(char tab[TAILLE_TAB][TAILLE_TAB], char mot[TAILLE_MOT])
     }
     return 0;
 }
-
+*/

@@ -23,6 +23,54 @@ void sauvegarde(char tab[TAILLE_TAB][TAILLE_TAB])
     }
 }
 
+void sauvegardeJoueur(joueur tabJ[4])
+{
+     int i,j;
+    FILE *file = NULL;
+    file = fopen("joueur.txt", "w+");
+
+    if( file != NULL)
+    {
+        for(i=0; i< 4 ; i++)
+        {
+
+            if (tabJ[i].nom != NULL)
+            {
+                fprintf(file, "%s ", tabJ[i].nom);
+                fprintf(file, "%d ", tabJ[i].score);
+
+                for(j=0; j< TAILLE_CHE; j++)
+                {
+                    fprintf(file, "%c ", tabJ[i].chevalet[j]);
+                }
+                fprintf(file, "\n");
+            }
+        }
+        fclose(file);
+    }
+}
+
+void sauvegardePioche(lettre pioche[26])
+{
+    int i;
+    FILE *file = NULL;
+    file = fopen("pioche.txt", "w+");
+
+    if( file != NULL)
+    {
+        for(i=0; i< 26 ; i++)
+        {
+            fprintf(file, "%c ", pioche[i].nom);
+            fprintf(file, "%d ", pioche[i].nbOcc);
+            fprintf(file, "%d ", pioche[i].valeur);
+
+            fprintf(file, "\n");
+        }
+        fclose(file);
+    }
+
+}
+
 void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB])
 {
     int i, j;
@@ -43,6 +91,50 @@ void lireSauvegarde(char tab[TAILLE_TAB][TAILLE_TAB])
         fclose(file);
     }
 }
+
+void lireSauvegardeJoueur(char tab[TAILLE_TAB][TAILLE_TAB])
+{
+    int i, j;
+    FILE *file = NULL;
+    file = fopen("joueur.txt", "r");
+
+    if(file != NULL)
+    {
+        for( i=0 ; i< 4 ; i++)
+        {
+            fscanf(file, "%s", tabJ[i].nom);
+            fscanf(file, "%d", &tabJ[i].score);
+
+            for(j=0; j< TAILLE_CHE; j++)
+            {
+                fscanf(file, "%c ", &tabJ[i].chevalet[j]);
+            }
+            fscanf(file, "\n");
+        }
+    }
+        fclose(file);
+}
+
+void lireSauvegardePioche()
+{
+    int i;
+    FILE *file = NULL;
+    file = fopen("pioche.txt", "r");
+
+    if(file != NULL)
+    {
+        for(i= 0 ; i<26 ; i++)
+        {
+            fscanf(file, "%c", &pioche[i].nom);
+            fscanf(file, "%d", &pioche[i].nbOcc);
+            fscanf(file, "%d", &pioche[i].valeur);
+        }
+        fprintf(file, "\n");
+
+        fclose(file);
+    }
+}
+
 
 
 void partieSauvegarder(char tab[TAILLE_TAB][TAILLE_TAB])

@@ -6,6 +6,7 @@
 
 void nvllePartie()
 {
+    int choix;
     int cpt = 0;
     int fin = verifPioche();
     int v, vj;
@@ -59,6 +60,7 @@ void nvllePartie()
 
         chrono();
 
+        /** Saisie du mot par l'utilisateur pour vérification des lettres dans le chevalet **/
        do{
             printf("Mot (pas plus de 15 lettres):");
             fflush(stdin);
@@ -71,22 +73,44 @@ void nvllePartie()
 
         vj = validJoueur();
 
+        /** Place le mot et maj le chevalet avant de calculer le score du mot**/
         if(vj == 1)
         {
             dessinerGrille(TAILLE_TAB, TAILLE_CEL, tab);
             placeMot(mot, tab, ligne, colonne, TAILLE_TAB, sens);
+            printf("test");
+            majChevalet(tabJ[i].chevalet, mot, i);
+            tabJ[i].score = tabJ[i].score + calculScore(tab,mot, ligne, colonne, sens);
             cpt++;
 
-            //majChevalet(tabJ[i].chevalet, mot);
+
         }
         else{
             tabJ[i].score += 10;
         }
 
         printf("\n");
-    }
 
-            /**Blindage mot �crit existe**/
+        }
+        do{
+            printf("Souhaitez vous continuez ou retourner au menu et sauvegarder le mot? (1 ou 2): \n");
+            scanf("%d", &choix);
+        }while(choix != 1 && choix != 2);
+
+        if(choix == 2)
+        {
+            sauvegarde(tab);
+            sauvegardeJoueur(tabJ);
+            sauvegardePioche(pioche);
+            menu();
+        }
+
+
+
+
+
+
+            /**Blindage mot ecrit existe**/
 
 /*
     FILE *fichier;
@@ -275,9 +299,11 @@ void placeMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], int ligne,
     h = horizontal(mot, ligne, colonne, TAILLE_TAB );
 
     //pour le test
+    /*
     printf("v = %d\n", v);
     printf("h = %d\n", h);
     printf("sens = %c\n", sens);
+    */
 
     if (sens == 'H' || sens == 'h')
     {
@@ -343,7 +369,7 @@ int vertical(char mot[TAILLE_MOT],int ligne, int colonne, int taille_tab)
 void ecritMot(char mot[TAILLE_MOT], char tab[TAILLE_TAB][TAILLE_TAB], char sens)
 {
     int i;
-    printf("%d", cpt);
+    //printf("%d", cpt);
     if(cpt == 0)
     {
         colonne = 8;
